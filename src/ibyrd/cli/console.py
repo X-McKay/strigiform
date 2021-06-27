@@ -1,25 +1,21 @@
 """Command line functions for ibyrd."""
 import argparse
+import os
 import textwrap
 
 import click
 import requests
 
-from ibyrd import __version__
-
-# from birding import ebird
-
 HOTSPOT_API_URL = "https://api.ebird.org/v2/ref/hotspot/geo?"
 
 
 @click.command()
-@click.version_option(version=__version__)
-def main():
+def main() -> None:
     """The Al McKay's Birding Projects."""
     click.echo("Hello, Birders!")
 
 
-def hotspots():
+def hotspots() -> None:
     """Get user input coordindates and range."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--lat", type=float, default=40.71)
@@ -35,7 +31,5 @@ def hotspots():
         data = response.json()
 
     for result in data:
-        # locations.append(str(result["locName"]))
-        # latest_observation.append(str(result["latestObsDt"]))
         click.secho(result["locName"], fg="green")
         click.echo(textwrap.fill(result["latestObsDt"]))

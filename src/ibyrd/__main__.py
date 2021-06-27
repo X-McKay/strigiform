@@ -3,10 +3,10 @@ import click
 
 
 @click.command()
-@click.version_option()
 def main() -> None:
     """ibyrd."""
+    click.echo("Hello, Birders!")
 
 
 if __name__ == "__main__":
-    main(prog_name="ibyrd")  # pragma: no cover
+    main(prog_name="ibyrd")
