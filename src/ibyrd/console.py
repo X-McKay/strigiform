@@ -6,6 +6,7 @@ import click
 import requests
 
 from . import __version__
+
 # from birding import ebird
 
 HOTSPOT_API_URL = "https://api.ebird.org/v2/ref/hotspot/geo?"
@@ -19,7 +20,7 @@ def main():
 
 
 def hotspots():
-
+    """Get user input coordindates and range."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--lat", type=float, default=40.71)
     parser.add_argument("--lon", type=float, default=-73.95)
@@ -32,9 +33,6 @@ def hotspots():
     with requests.get(HOTSPOT_API_URL, params=parameters) as response:
         response.raise_for_status()
         data = response.json()
-
-    locations = []
-    latest_observation = []
 
     for result in data:
         # locations.append(str(result["locName"]))
