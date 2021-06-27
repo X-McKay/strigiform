@@ -1,6 +1,5 @@
 """Command line functions for ibyrd."""
 import argparse
-import os
 import textwrap
 
 import click
