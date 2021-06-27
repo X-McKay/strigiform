@@ -1,0 +1,11 @@
+{
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Alex McKay",
+  "email": "aldmckay@gmail.com",
+  "friendly_name": "ibyrd",
+  "github_user": "X-McKay",
+  "license": "MIT",
+  "package_name": "ibyrd",
+  "project_name": "ibyrd",
+  "version": "0.0.0"
+}
