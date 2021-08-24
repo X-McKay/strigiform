@@ -11,5 +11,3 @@ __pycache__/
 .venv
 .vscode
 /src/ibyrd/auth.py
-/poetry.lock
-poetry.lock
