@@ -5,7 +5,7 @@ from typing import Any
 import pandas as pd
 import requests
 
-from ibyrd.util.auth import EBIRD_KEY
+from ibyrd.util.auth import EBIRD_KEY  # type: ignore
 
 
 def get_hotspots(
@@ -15,7 +15,7 @@ def get_hotspots(
     parameters = {"lat": lat, "lng": lon, "fmt": fmt, "dist": dist, "back": back}
 
     response = requests.get(
-        "https://api.ebird.org/v2/ref/hotspot/geo?", params=parameters
+        "https://api.ebird.org/v2/ref/hotspot/geo?", params=parameters  # type: ignore
     )
 
     locations = []
@@ -36,3 +36,19 @@ def get_taxonomy(fmt: str = "csv") -> Any:
     df = pd.read_csv(taxonomy)
 
     return df
+
+
+# def get_checklist(subId: str) -> Any:
+#     """Retreive eBird checklist information based on a single ID."""
+#     header = {"X-eBirdApiToken": EBIRD_KEY}
+#     parameters = {"subId": subId}
+#     subId = "S90521630"
+#     response = requests.get(
+#         f"https://api.ebird.org/v2/product/checklist/view/{subId}", headers=header
+#     )
+#     taxonomy = StringIO(response.text)
+#     df = pd.read_csv(taxonomy)
+
+
+# TODO: def get_ebird_region():
+# TODO: def get_species_list():
