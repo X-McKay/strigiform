@@ -8,6 +8,7 @@ readme = "README.rst"
 homepage = "https://github.com/X-McKay/ibyrd"
 repository = "https://github.com/X-McKay/ibyrd"
 documentation = "https://ibyrd.readthedocs.io"
+
 classifiers = [
     "Programming Language :: Python :: 3.7",
     "Programming Language :: Python :: 3.8",
@@ -53,7 +54,6 @@ Pygments = "^2.9.0"
 ibyrd = "ibyrd.__main__:main"
 hotspots = "ibyrd.cli.console:hotspots"
 
-
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
@@ -63,7 +63,7 @@ source = ["ibyrd"]
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 100
+fail_under = 80
 
 [tool.mypy]
 strict = true
