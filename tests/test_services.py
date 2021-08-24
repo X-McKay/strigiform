@@ -18,7 +18,7 @@ def test_get_hotspots_valid_coord(runner: CliRunner) -> None:
 
     parameters = {"lat": 47.60, "lng": -122.33, "fmt": "json", "dist": 10, "back": 5}
     response = requests.get(
-        "https://api.ebird.org/v2/ref/hotspot/geo?", params=parameters
+        "https://api.ebird.org/v2/ref/hotspot/geo?", params=parameters  # type: ignore
     )
 
     locations = []
