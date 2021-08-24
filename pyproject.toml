@@ -22,9 +22,9 @@ Changelog = "https://github.com/X-McKay/ibyrd/releases"
 python = "^3.7.9"
 click = "^8.0.1"
 requests = "2.24.0"
-types-requests = "^2.25.0"
+types-requests = "^2.25.6"
 pandas = "^1.2.5"
-pandas-stubs = "^1.1.0"
+pandas-stubs = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
