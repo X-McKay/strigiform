@@ -1,0 +1,30 @@
+#!/bin/bash -e
+
+# Setting defaults
+export LANG=en_US.UTF-8
+
+bin_dir="$(dirname "$0")"
+root_dir="$(git rev-parse --show-toplevel)"
+
+export BIN_DIR=$bin_dir
+export ROOT_DIR=$root_dir
+
+source "${bin_dir}/set-env.sh"
+
+# Install asdf and plugins
+asdf_add_required_plugins
+asdf install $(grep "python" "${root_dir}/.tool-versions")
+asdf reshim
+
+pip install -U pip
+asdf_ordered_install
+asdf reshim
+echo "asdf and plugins installed!"
+
+#configure poetry settings
+echo "Configuring and installing poetry..."
+poetry config virtualenvs.in-project true
+poetry env use 3.7.9
+poetry run python -m pip install --upgrade pip setuptools
+poetry install
+poetry run pre-commit install

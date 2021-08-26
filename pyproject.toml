@@ -25,7 +25,9 @@ requests = "2.24.0"
 types-requests = "^2.25.0"
 pandas = "^1.2.5"
 pandas-stubs = "^1.2.0"
-unittest = "^0.0"
+click-help-colors = "^0.9.1"
+nox-poetry = "^0.8.6"
+botocore = "^1.21.29"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
@@ -52,8 +54,7 @@ sphinx-click = "^3.0.1"
 Pygments = "^2.9.0"
 
 [tool.poetry.scripts]
-ibyrd = "ibyrd.__main__:main"
-hotspots = "ibyrd.cli.console:hotspots"
+ibyrd = "ibyrd.core.cli:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

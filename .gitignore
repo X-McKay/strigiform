@@ -10,4 +10,4 @@
 __pycache__/
 .venv
 .vscode
-/src/ibyrd/auth.py
+/src/ibyrd/util/auth.py
