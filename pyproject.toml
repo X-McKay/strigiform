@@ -31,7 +31,7 @@ botocore = "^1.21.29"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
-coverage = {extras = ["toml"], version = "^5.4"}
+coverage = {extras = ["toml"], version = "^5.5"}
 safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
@@ -52,6 +52,7 @@ pre-commit-hooks = "^4.0.1"
 sphinx-rtd-theme = "^0.5.2"
 sphinx-click = "^3.0.1"
 Pygments = "^2.9.0"
+pytest-cov = "^2.12.1"
 
 [tool.poetry.scripts]
 ibyrd = "ibyrd.core.cli:main"
