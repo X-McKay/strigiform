@@ -25,6 +25,7 @@ requests = "2.24.0"
 types-requests = "^2.25.0"
 pandas = "^1.2.5"
 pandas-stubs = "^1.2.0"
+unittest = "^0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
