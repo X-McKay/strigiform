@@ -28,6 +28,17 @@ def test_get_hotspots_valid_coord(runner: CliRunner) -> None:
     assert function_response == locations
 
 
+def test_taxonomy_api_call(runner: CliRunner) -> None:
+    """Test API call to get taxonomy from ebird."""
+    response = ebird.get_taxonomy()
+
+    # Validate response headers and body contents, e.g. status code.
+    assert response.status_code == 200
+
+    # Validate response content type header
+    assert response.headers["Content-Type"] == "application/json"
+
+
 # def test_get_hotspots_invalid_coord(runner: CliRunner) -> None:
 #     """Test hotspot functionality."""
 #     response = ebird.get_hotspots(91, 181, fmt="json")
