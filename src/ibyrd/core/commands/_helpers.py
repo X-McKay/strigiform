@@ -36,14 +36,14 @@ def execute_shell_command(command: str) -> Optional[str]:
                     break
                 if output:
                     paths.append(output)
-                    click.echo(output.strip())
+                    click.secho(output.strip())
             stdout, stderr = process.communicate()
-            rc = subprocess.returncode
+            rc = process.returncode
             if rc != 0 or stderr is not None:
                 raise SubprocessError(stderr)
             return None if len(paths) == 0 else paths[0]
     except (SubprocessError, FileNotFoundError):
         e_string = traceback.format_exc()
-        click.echo(f"Command {command} failed due to: ", fg=CliColors.ERROR.value)
+        click.secho(f"Command {command} failed due to: ", fg=CliColors.ERROR.value)
         click.secho(e_string, fg=CliColors.ERROR.value)
         raise
