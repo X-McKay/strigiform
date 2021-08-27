@@ -17,9 +17,15 @@ def clean_echo_results(data) -> None:
             click.secho("No recent Observations", fg="red")
 
 
-def hotspot_cmd(lat: float, lon: float, fmt: str, miles: int) -> None:
+def hotspot_cmd(
+    lat: float = 40.71, lon: float = -73.95, fmt: str = "json", miles: int = 3
+) -> None:
     """Get user input coordindates and range."""
     parameters = {"lat": lat, "lng": lon, "fmt": fmt, "dist": miles}
+
+    if (abs(lat) > 90) or (abs(lon) > 180) or (miles <= 0) or (miles > 30):
+        raise ValueError
+        exit
 
     with requests.get(HOTSPOT_API_URL, params=parameters) as response:
         response.raise_for_status()

@@ -9,7 +9,7 @@ from click_help_colors import HelpColorsGroup
 
 from ibyrd.core.commands._helpers import CliColors
 from ibyrd.core.commands.hotspots import hotspot_cmd
-from ibyrd.core.commands.test import test_cmd
+from ibyrd.core.commands.test import nox_cmd
 
 click.option = functools.partial(click.option, show_default=True)
 
@@ -30,7 +30,7 @@ def main():
 @click.argument("root_dir", type=click.Path(), default=os.curdir)
 def test(root_dir: str):
     """Runs the Nox testing suite for the entire project."""
-    test_cmd(root_dir)
+    nox_cmd(root_dir)
 
 
 @main.command(cls=HelpColorsCommand, help_options_color=CliColors.OPTIONS.value)
