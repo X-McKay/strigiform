@@ -27,7 +27,7 @@ pandas = "^1.2.5"
 pandas-stubs = "^1.2.0"
 click-help-colors = "^0.9.1"
 nox-poetry = "^0.8.6"
-botocore = "^1.21.29"
+botocore = "^1.21.30"
 pytest-responsemock = {extras = ["dev"], version = "^1.0.1"}
 
 [tool.poetry.dev-dependencies]
