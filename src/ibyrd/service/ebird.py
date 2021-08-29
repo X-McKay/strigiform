@@ -1,12 +1,14 @@
 """Module to interact with EBird API."""
 import os
-from io import StringIO
 from typing import Any
 
-import pandas as pd
 import requests
 
-EBIRD_KEY = os.getenv("EBIRD_KEY")
+from ibyrd.commons import config
+from ibyrd.commons.api import api_extract
+
+
+ebird_key = os.getenv("EBIRD_KEY")
 
 
 def get_hotspots(
@@ -26,23 +28,28 @@ def get_hotspots(
     return locations
 
 
-def get_taxonomy(fmt: str = "csv") -> Any:
-    """Retreive eBird Taxonomy."""
-    header = {"X-eBirdApiToken": EBIRD_KEY}
+def get_taxonomy(
+    category: str = config.DEFAULT_TAXONOMY_CATEGORY,
+    fmt: str = config.DEFAULT_TAXONOMY_FORMAT,
+    save: bool = False,
+    path: str = "./data/taxonomy",
+):
+    """Function to request the latest taxonomy data from the eBird API.
 
-    response = requests.get(
-        "https://api.ebird.org/v2/ref/taxonomy/ebird?", headers=header
-    )
+    :param str category:
+        Optional specification related to the granularity of taxonomy
+    :param str fmt:
+        Format output should be returned in
+    :param bool save:
+        Option to save option to file
+    :param str path:
+        Path to save output if relevant
+    :return:
+        API response
+    """
+    params = {"cat": category, "fmt": fmt}
 
-    return response
-
-
-def get_taxonomy_df(response) -> Any:
-    """Format eBird Taxonomy response to pandas DataFrame."""
-    taxonomy = StringIO(response.text)
-    df = pd.read_csv(taxonomy)
-
-    return df
+    return api_extract(config.EBIRD_TAXONOMY_URL, params, save, path)
 
 
 # def get_checklist(subId: str) -> Any:
@@ -55,7 +62,6 @@ def get_taxonomy_df(response) -> Any:
 #     )
 #     taxonomy = StringIO(response.text)
 #     df = pd.read_csv(taxonomy)
-
 
 # TODO: def get_ebird_region():
 # TODO: def get_species_list():
