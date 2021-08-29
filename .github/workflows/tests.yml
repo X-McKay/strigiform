@@ -28,6 +28,7 @@ jobs:
 
     env:
       NOXSESSION: ${{ matrix.session }}
+      EBIRD_KEY: ${{ secrets.EBIRD_KEY}}
 
     steps:
       - name: Check out the repository

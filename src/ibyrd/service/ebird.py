@@ -1,11 +1,12 @@
 """Module to interact with EBird API."""
+import os
 from io import StringIO
 from typing import Any
 
 import pandas as pd
 import requests
 
-from ibyrd.util.auth import EBIRD_KEY  # type: ignore
+EBIRD_KEY = os.getenv("EBIRD_KEY")
 
 
 def get_hotspots(

@@ -11,3 +11,4 @@ __pycache__/
 .venv
 .vscode
 /src/ibyrd/util/auth.py
+.ENV
