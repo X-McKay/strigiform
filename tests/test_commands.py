@@ -1,4 +1,4 @@
-"""Test cases for the __main__ module."""
+"""Test cases for the commands module."""
 import os
 import unittest
 from subprocess import SubprocessError
