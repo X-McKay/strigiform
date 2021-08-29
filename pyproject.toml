@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ibyrd"
-version = "0.0.0"
+version = "0.0.1"
 description = "ibyrd"
 authors = ["Alex McKay <aldmckay@gmail.com>"]
 license = "MIT"

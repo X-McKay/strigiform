@@ -1,5 +1,7 @@
-ibyrd
-=====
+===============================
+iByrd
+===============================
+
 
 |PyPI| |Python Version| |License|
 
@@ -33,17 +35,36 @@ ibyrd
    :alt: Black
 
 
+ibyrd is a Python package that provides tools for Birders and Researchers to:
+
+* Explore and visualize information for Birders
+* Easily interact with eBird APIs.
+
+
+Project Maturity and readiness
+------------------------------
+
+iByrd is under active development; many key workflows and best practices are still being worked out.
+More seamless interaction with eBird products is in development, as well as
+general improvement the overall user experience.
+
+
+A current major focus is visualization of user life-lists across various levels
+of taxonomy and relevant categories.
+
+
 Features
 --------
 
-* TODO
+* Retrieval of hotspots (eBird) via CLI and/or python
+* Extracting the latest version of the eBird Taxonomy (species list for data entry and listing purposes across the world)
+
 
 
 Requirements
 ------------
 
-* TODO
-
+`ASDF`_ for managing multiple runtime verisions.
 
 Installation
 ------------
@@ -57,6 +78,8 @@ You can install *ibyrd* via pip_ from PyPI_:
 
 Usage
 -----
+
+* IN PROGRESS
 
 Please see the `Command-line Reference <Usage_>`_ for details.
 
@@ -85,7 +108,13 @@ please `file an issue`_ along with a detailed description.
 Credits
 -------
 
-This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template.
+* Cornell University
+
+* Cornell Lab of Ornithology
+
+* This project was originally based on `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template.
+
+* Credit to Tim Rodriguez for indirect influence of S&BP.
 
 .. _@cjolowicz: https://github.com/cjolowicz
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
@@ -97,3 +126,4 @@ This project was generated from `@cjolowicz`_'s `Hypermodern Python Cookiecutter
 .. github-only
 .. _Contributor Guide: CONTRIBUTING.rst
 .. _Usage: https://ibyrd.readthedocs.io/en/latest/usage.html
+.. _ASDF: http://asdf-vm.com/
