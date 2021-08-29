@@ -26,6 +26,13 @@ _ebird_api_defaults = {
 }
 
 
+def ebird_auth():
+    """Return header with eBird token."""
+    ebird_key = os.getenv("EBIRD_KEY")
+    header = {"X-eBirdApiToken": ebird_key}
+    return header
+
+
 def filter_parameters(params):
     """Filter out any parameter which matches the eBird API default value.
 
@@ -131,10 +138,3 @@ def api_extract(url=None, params=None, save: bool = False, path: str = "./data/t
                 f.write(api_response)
 
     return api_response
-
-
-def ebird_auth():
-    """Return header with eBird token."""
-    ebird_key = os.getenv("EBIRD_KEY")
-    header = {"X-eBirdApiToken": ebird_key}
-    return header
