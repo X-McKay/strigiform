@@ -1,11 +1,12 @@
 """Module to interact with EBird API."""
+import os
 from io import StringIO
 from typing import Any
 
 import pandas as pd
 import requests
 
-from ibyrd.util.auth import EBIRD_KEY  # type: ignore
+EBIRD_KEY = os.getenv("EBIRD_KEY")
 
 
 def get_hotspots(
@@ -32,6 +33,12 @@ def get_taxonomy(fmt: str = "csv") -> Any:
     response = requests.get(
         "https://api.ebird.org/v2/ref/taxonomy/ebird?", headers=header
     )
+
+    return response
+
+
+def get_taxonomy_df(response) -> Any:
+    """Format eBird Taxonomy response to pandas DataFrame."""
     taxonomy = StringIO(response.text)
     df = pd.read_csv(taxonomy)
 

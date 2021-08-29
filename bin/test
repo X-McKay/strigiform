@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+# Setting defaults
+export LANG=en_US.UTF-8
+
+bin_dir="$(dirname "$0")"
+root_dir="$(git rev-parse --show-toplevel)"
+
+export BIN_DIR=$bin_dir
+export ROOT_DIR=$root_dir
+
+source "${root_dir}/${bin_dir}/set-env.sh"
+
+poetry run nox

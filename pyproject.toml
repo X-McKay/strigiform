@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ibyrd"
-version = "0.0.0"
+version = "0.0.1"
 description = "ibyrd"
 authors = ["Alex McKay <aldmckay@gmail.com>"]
 license = "MIT"
@@ -25,17 +25,22 @@ requests = "2.24.0"
 types-requests = "^2.25.0"
 pandas = "^1.2.5"
 pandas-stubs = "^1.2.0"
+click-help-colors = "^0.9.1"
+nox-poetry = "^0.8.6"
+botocore = "^1.21.29"
+importlib-metadata = "<4.8.0"
+pytest-responsemock = {extras = ["dev"], version = "^1.0.1"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
-coverage = {extras = ["toml"], version = "^5.4"}
+coverage = {extras = ["toml"], version = "^5.5"}
 safety = "^1.10.3"
 mypy = "^0.910"
 typeguard = "^2.12.1"
 xdoctest = {extras = ["colors"], version = "^0.15.4"}
 sphinx = "^4.0.2"
 sphinx-autobuild = "^2021.3.14"
-pre-commit = "^2.13.0"
+pre-commit = "<2.14.1"
 flake8 = "^3.9.2"
 black = "^20.8b1"
 flake8-bandit = "^2.1.2"
@@ -49,10 +54,10 @@ pre-commit-hooks = "^4.0.1"
 sphinx-rtd-theme = "^0.5.2"
 sphinx-click = "^3.0.1"
 Pygments = "^2.9.0"
+pytest-cov = "^2.12.1"
 
 [tool.poetry.scripts]
-ibyrd = "ibyrd.__main__:main"
-hotspots = "ibyrd.cli.console:hotspots"
+ibyrd = "ibyrd.core.cli:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
