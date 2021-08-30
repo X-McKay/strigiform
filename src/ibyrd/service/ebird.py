@@ -1,11 +1,12 @@
 """Module to interact with EBird API."""
+import json
 import os
 from typing import Any
 
 import requests
 
-from ibyrd.commons import config
-from ibyrd.commons.api import api_extract
+from ibyrd.util import config
+from ibyrd.util.api import api_extract
 
 
 ebird_key = os.getenv("EBIRD_KEY")
@@ -29,9 +30,10 @@ def get_hotspots(
 
 
 def get_taxonomy(
-    category: str = config.DEFAULT_TAXONOMY_CATEGORY,
+    cat: str = config.DEFAULT_TAXONOMY_CATEGORY,
     fmt: str = config.DEFAULT_TAXONOMY_FORMAT,
     save: bool = False,
+    save_fmt: str = config.DEFAULT_TAXONOMY_SAVE_FORMAT,
     path: str = "./data/taxonomy",
 ):
     """Function to request the latest taxonomy data from the eBird API.
@@ -47,9 +49,9 @@ def get_taxonomy(
     :return:
         API response
     """
-    params = {"cat": category, "fmt": fmt}
+    params = {"cat": cat, "fmt": fmt}
 
-    return api_extract(config.EBIRD_TAXONOMY_URL, params, save, path)
+    return api_extract(config.EBIRD_TAXONOMY_URL, params, save, save_fmt, path)
 
 
 # def get_checklist(subId: str) -> Any:
@@ -65,3 +67,38 @@ def get_taxonomy(
 
 # TODO: def get_ebird_region():
 # TODO: def get_species_list():
+
+
+def get_hots(
+    lat: float = config.DEFAULT_LAT,
+    lng: float = config.DEFAULT_LNG,
+    fmt: str = config.DEFAULT_FORMAT,
+    dist: int = config.DEFAULT_DIST,
+    back: int = config.DEFAULT_BACK,
+    loc_only: bool = True,
+    save: bool = False,
+    path: str = "./data/hotspots",
+):
+    """Function to extract eBird hotspots according provided parameters.
+
+    :param params: request parameters for hotspot api request, defaults to None
+    :type params: dict, optional
+    :param save: Option to save output, defaults to False
+    :type save: bool, optional
+    :param path: Location of output if save is set to True, defaults to './data/hotspots'
+    :type path: str, optional
+    :return: Dict of eBird hotspots
+    :rtype: dict
+    """
+    params = {"lat": lat, "lng": lng, "fmt": fmt, "dist": dist, "back": back}
+
+    response = api_extract(config.EBIRD_HOTSPOT_URL, params, save, path)
+
+    if loc_only is True:
+        hotspots = []
+        for result in json.loads(response):
+            hotspots.append(str(result["locName"]))
+    else:
+        hotspots = response
+
+    return hotspots

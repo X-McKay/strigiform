@@ -5,14 +5,12 @@ from urllib.parse import urlencode
 
 import requests
 
-from ibyrd.commons import config
+from ibyrd.util import config
 
-# from urllib.request import Request
-# from urllib.request import urlopen
 
 _ebird_api_defaults = {
     "lat": config.DEFAULT_LAT,
-    "lon": config.DEFAULT_LON,
+    "lng": config.DEFAULT_LNG,
     "dist": config.DEFAULT_DIST,
     "back": config.DEFAULT_BACK,
     "fmt": config.DEFAULT_FORMAT,
@@ -53,9 +51,10 @@ def filter_parameters(params):
         if key in defaults:
             if value != defaults[key]:
                 filtered[key] = value
-        else:
-            filtered[key] = value
+            else:
+                filtered[key] = value
 
+    print("Filtered params:", filtered)
     return filtered
 
 
@@ -82,9 +81,9 @@ def get_api_response(url, params=None, headers=None):
 
     if url.lower().startswith("http") is True:
         if headers:
-            response = requests.get(url, headers=ebird_auth())
+            response = requests.get(url, params, headers=ebird_auth())
         else:
-            response = requests.get(url)
+            response = requests.get(url, params)
     else:
         raise ValueError from None
 
@@ -101,10 +100,16 @@ def get_json(response):
     :rtype:
         list
     """
-    return json.loads(response.decode("utf-8"))
+    return json.loads(response)
 
 
-def api_extract(url=None, params=None, save: bool = False, path: str = "./data/temp"):
+def api_extract(
+    url=None,
+    params=None,
+    save: bool = False,
+    save_fmt: str = config.DEFAULT_SAVE_FORMAT,
+    path: str = "./data/temp",
+):
     """Get clean API output.
 
     :param list response:
@@ -121,16 +126,19 @@ def api_extract(url=None, params=None, save: bool = False, path: str = "./data/t
     headers = ebird_auth()
     filtered = filter_parameters(params)
 
-    if params["fmt"] == "json":
-        print("returning json...")
-        api_response = get_json(get_api_response(url, filtered, headers))
+    # if "fmt" in params:
+    #     if params["fmt"] == "csv":
+    #         print("returning csv...")
+    #         api_response = get_api_response(url, filtered, headers)
+    #     else:
+    #         print("returning json...")
+    #         #api_response = get_json(get_api_response(url, filtered, headers))
+    #         api_response = get_api_response(url, filtered, headers)
 
-    else:
-        print("returning csv...")
-        api_response = get_api_response(url, filtered, headers)
+    api_response = get_api_response(url, filtered, headers)
 
     if save is True:
-        if params["fmt"] == "json":
+        if save_fmt == "json":
             with open(f"{path}.json", "w+") as f:
                 json.dump(api_response, f)
         else:

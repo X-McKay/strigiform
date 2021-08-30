@@ -6,14 +6,16 @@ EBIRD_TAXONOMY_URL = "https://ebird.org/ws2.0/ref/taxonomy/ebird"
 
 # Default values related to Hotspot requests
 DEFAULT_LAT = 40.71
-DEFAULT_LON = -73.95
+DEFAULT_LNG = -73.95
 DEFAULT_FORMAT = "json"
-DEFAULT_DIST = 3
+DEFAULT_SAVE_FORMAT = "json"
+DEFAULT_DIST = 5
 DEFAULT_BACK = 5
 
 # Default values related to Taxonomy requests
 DEFAULT_TAXONOMY_FORMAT = "csv"
-DEFAULT_TAXONOMY_CATEGORY = "Species"
+DEFAULT_TAXONOMY_SAVE_FORMAT = "csv"
+DEFAULT_TAXONOMY_CATEGORY = "species"
 
 # Default values related to Checklist requests
 DEFAULT_LOCALE = "en"
