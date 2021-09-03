@@ -126,7 +126,7 @@ d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
 name = "botocore"
-version = "1.21.31"
+version = "1.21.35"
 description = "Low-level, data-driven core of boto 3."
 category = "main"
 optional = false
@@ -1269,8 +1269,8 @@ black = [
     {file = "black-20.8b1.tar.gz", hash = "sha256:1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"},
 ]
 botocore = [
-    {file = "botocore-1.21.31-py3-none-any.whl", hash = "sha256:8bc35ae34256cac76828ab96c80bc6653b942f85ad1898e7e265196fe92b659e"},
-    {file = "botocore-1.21.31.tar.gz", hash = "sha256:58cd315e2ae0971acdb3d7cda9c9c36b41c73181f41943a7443812d6d3c9ad18"},
+    {file = "botocore-1.21.35-py3-none-any.whl", hash = "sha256:29741509b19a6873e7f916fc0d9954e6433428d64669961f1daf322ce5254912"},
+    {file = "botocore-1.21.35.tar.gz", hash = "sha256:f60f8e10292dd509c5576eb42628656b72157375295d7f92120989b9f103857d"},
 ]
 cached-property = [
     {file = "cached-property-1.5.2.tar.gz", hash = "sha256:9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"},
