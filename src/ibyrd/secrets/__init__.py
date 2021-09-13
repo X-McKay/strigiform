@@ -1,1 +1,1 @@
-"""Secrets management."""
+"""Placeholder for secrets management."""

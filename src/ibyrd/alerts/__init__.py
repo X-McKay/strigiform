@@ -1,1 +1,1 @@
-"""Bird alerting services."""
+"""Placeholder for bird alerting services."""
