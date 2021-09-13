@@ -1,0 +1,28 @@
+#!/bin/bash -e
+
+install_postgres() {
+    echo "Installing postgres via brew..."
+    brew install postgresql
+}
+
+run_postgres_on_start() {
+    echo "Configuring postgres to run on startup..."
+    pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+}
+
+check_postgres_version() {
+    postgres -V
+}
+
+ list_postgres_users () {
+    psql postgres
+    postgres=# \du
+ }
+
+create_ibyrd_user () {
+    psql postgres
+    CREATE ROLE ibyrd WITH LOGIN PASSWORD 'birding';
+    ALTER ROLE ibyrd CREATEDB;
+    \du
+    \q # exit
+}

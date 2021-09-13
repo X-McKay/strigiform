@@ -12,3 +12,6 @@ __pycache__/
 .vscode
 /src/ibyrd/util/auth.py
 .ENV
+data/*
+database.ini
+.DS_Store

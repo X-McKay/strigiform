@@ -66,6 +66,11 @@ Requirements
 
 `ASDF`_ for managing multiple runtime verisions.
 
+`eBird API Key`_ to dyanamically use and access eBird data.
+
+* Once an API Key has been obtained, store it in an Environment variable named **EBIRD_KEY**
+
+
 Installation
 ------------
 
@@ -127,3 +132,4 @@ Credits
 .. _Contributor Guide: CONTRIBUTING.rst
 .. _Usage: https://ibyrd.readthedocs.io/en/latest/usage.html
 .. _ASDF: http://asdf-vm.com/
+.. _eBird API Key: https://ebird.org/data/download
