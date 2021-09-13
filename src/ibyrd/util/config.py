@@ -1,4 +1,6 @@
 """File to store ibyrd configurations."""
+from configparser import ConfigParser
+
 # eBird API 2.0: https://documenter.getpostman.com/view/664302/S1ENwy59#intro
 # eBird 2.0 URLS
 EBIRD_HOTSPOT_URL = "https://api.ebird.org/v2/ref/hotspot/geo?"
@@ -25,3 +27,47 @@ DEFAULT_PROVISIONAL = "false"
 DEFAULT_RANK = "mrec"
 DEFAULT_MAX_OBSERVATIONS = None
 DEFAULT_MAX_LOCATIONS = 10
+
+
+def postgres_config(filename="database.ini", section="postgresql"):
+    """Parse postgres connection info from ini file.
+
+    :param filename: database configuration file, defaults to "database.ini"
+    :type filename: str, optional
+    :param section: section of configuration file, defaults to "postgresql"
+    :type section: str, optional
+    :raises Exception: if section is not found in configuration file
+    :return: dictionary with connection information
+    :rtype: dict
+    """
+    # create a parser
+    parser = ConfigParser()
+    # read config file
+    parser.read(filename)
+
+    # get section, default to postgresql
+    db = {}
+    if parser.has_section(section):
+        params = parser.items(section)
+        for param in params:
+            db[param[0]] = param[1]
+    else:
+        raise Exception(
+            "Section {0} not found in the {1} file".format(section, filename)
+        )
+
+    return db
+
+
+def postgres_engine_str():
+    """Generate connection string from database.ini file.
+
+    :return: connection string for sqlalchemy
+    :rtype: string
+    """
+    config = postgres_config()
+    user = config["user"]
+    password = config["password"]
+    host = config["host"]
+    database = config["database"]
+    return f"postgresql://{user}:{password}@{host}/{database}"

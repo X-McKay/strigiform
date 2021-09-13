@@ -13,3 +13,5 @@ __pycache__/
 /src/ibyrd/util/auth.py
 .ENV
 data/*
+database.ini
+.DS_Store
