@@ -31,6 +31,7 @@ def ebird_auth():
     return header
 
 
+# TODO: Fix fetch of request parameters
 def filter_parameters(params):
     """Filter out any parameter which matches the eBird API default value.
 
@@ -124,16 +125,17 @@ def api_extract(
         API response
     """
     headers = ebird_auth()
+
     filtered = filter_parameters(params)
 
-    # if "fmt" in params:
-    #     if params["fmt"] == "csv":
-    #         print("returning csv...")
-    #         api_response = get_api_response(url, filtered, headers)
-    #     else:
-    #         print("returning json...")
-    #         #api_response = get_json(get_api_response(url, filtered, headers))
-    #         api_response = get_api_response(url, filtered, headers)
+    if "fmt" in params:
+        if params["fmt"] == "csv":
+            print("returning csv...")
+            api_response = get_api_response(url, filtered, headers)
+        else:
+            print("returning json...")
+            # api_response = get_json(get_api_response(url, filtered, headers))
+            api_response = get_api_response(url, filtered, headers)
 
     api_response = get_api_response(url, filtered, headers)
 
