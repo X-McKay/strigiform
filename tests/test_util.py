@@ -50,13 +50,15 @@ def test_ebird_auth():
     assert auth_response["X-eBirdApiToken"] == "123ABC"
 
 
-def test_postgres_engine_str():
-    """Test generation of sqlalchemy engine string."""
-    connenction_string = config.postgres_engine_str()
-    assert type(connenction_string) == str
-
-
 def test_postgres_config():
     """Test extraction of db params."""
-    postgres_params = config.postgres_config()
+    postgres_params = config.postgres_config(filename="./tests/mock_database.ini")
     assert type(postgres_params) == dict
+
+
+def test_postgres_engine_str():
+    """Test generation of sqlalchemy engine string."""
+    connenction_string = config.postgres_engine_str(
+        filename="./tests/mock_database.ini"
+    )
+    assert type(connenction_string) == str

@@ -59,13 +59,13 @@ def postgres_config(filename="database.ini", section="postgresql"):
     return db
 
 
-def postgres_engine_str():
+def postgres_engine_str(filename="database.ini", section="postgresql"):
     """Generate connection string from database.ini file.
 
     :return: connection string for sqlalchemy
     :rtype: string
     """
-    config = postgres_config()
+    config = postgres_config(filename, section)
     user = config["user"]
     password = config["password"]
     host = config["host"]
