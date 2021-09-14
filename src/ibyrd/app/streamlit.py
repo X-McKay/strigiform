@@ -28,8 +28,8 @@ with right_column:
 
 st.markdown(
     """
-            \
-            -----"""
+    \
+    -----"""
 )
 
 
@@ -81,8 +81,8 @@ get_period_stats(df, start, end)
 
 st.markdown(
     """
-            \
-            -----"""
+    \
+     -----"""
 )
 
 st.dataframe(get_period_species(df, start, end))
