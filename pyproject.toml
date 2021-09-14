@@ -20,7 +20,7 @@ Changelog = "https://github.com/X-McKay/ibyrd/releases"
 
 [tool.poetry.dependencies]
 python = "^3.7.9"
-click = "^8.0.1"
+click = "^7.0"
 requests = "2.26.0"
 types-requests = "^2.25.0"
 pandas = "^1.2.5"
@@ -35,6 +35,7 @@ configparser = "^5.0.2"
 sql = "^0.4.0"
 SQLAlchemy = "1.4.22"
 mock = "^4.0.3"
+streamlit = "^0.88.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
