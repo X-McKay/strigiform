@@ -33,7 +33,7 @@ pytest-responsemock = {extras = ["dev"], version = "^1.0.1"}
 psycopg2 = "^2.9.1"
 configparser = "^5.0.2"
 sql = "^0.4.0"
-SQLAlchemy = "1.4.22"
+SQLAlchemy = "1.4.23"
 mock = "^4.0.3"
 
 [tool.poetry.dev-dependencies]
