@@ -9,6 +9,7 @@ from click_help_colors import HelpColorsGroup
 
 from ibyrd.core.commands._helpers import CliColors
 from ibyrd.core.commands.hotspots import hotspot_cmd
+from ibyrd.core.commands.launch import launch_app_cmd
 from ibyrd.core.commands.test import nox_cmd
 
 click.option = functools.partial(click.option, show_default=True)
@@ -53,6 +54,12 @@ def test(root_dir: str):
 def hotspots(lat: float, lon: float, fmt: str, miles: int):
     """Searches Ebird for hotspots for birding."""
     hotspot_cmd(lat, lon, fmt, miles)
+
+
+@main.command(cls=HelpColorsCommand, help_options_color="blue")
+def launch():
+    """Launches ibyrd webapp."""
+    launch_app_cmd()
 
 
 if __name__ == "__main__":

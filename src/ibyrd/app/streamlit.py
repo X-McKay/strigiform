@@ -1,5 +1,6 @@
 """Module for basic Streamlit webapps."""
 import datetime
+from datetime import timedelta
 
 import pandas as pd
 import streamlit as st
@@ -13,8 +14,10 @@ st.title("iByrd: Panorama")
 
 left_column, right_column = st.columns(2)
 
-start = st.sidebar.date_input("Start date", datetime.date(2018, 1, 1))
-end = st.sidebar.date_input("End date", datetime.date.today())
+today = datetime.date.today()
+
+start = st.sidebar.date_input("Start date", today - timedelta(days=365))
+end = st.sidebar.date_input("End date", today)
 
 with left_column:
     st.write("Start date:", start)
