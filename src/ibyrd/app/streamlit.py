@@ -9,19 +9,28 @@ from ibyrd.util import config
 
 
 st.sidebar.markdown("## Select a date range")
-st.title("iByrd Eagle eye")
+st.title("iByrd: Panorama")
 
 left_column, right_column = st.columns(2)
 
-start = st.sidebar.date_input("Select start date", datetime.date(2018, 1, 1))
-end = st.sidebar.date_input("Selet end date", datetime.date.today())
+start = st.sidebar.date_input("Start date", datetime.date(2018, 1, 1))
+end = st.sidebar.date_input("End date", datetime.date.today())
 
 with left_column:
-    st.write("Selected start date:", start)
+    st.write("Start date:", start)
 
 with right_column:
-    st.write("Selected end date:", end)
+    st.write("End date:", end)
 
+
+st.markdown(
+    """
+            \
+            -----"""
+)
+
+
+st.markdown("### Summary Statistics:")
 
 engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
 
@@ -64,15 +73,13 @@ def get_period_species(df, start, end):
     return species_df
 
 
-# Title the app
-
-
 df = get_data()
-st.dataframe(get_period_stats(df, start, end))
+get_period_stats(df, start, end)
+
+st.markdown(
+    """
+            \
+            -----"""
+)
+
 st.dataframe(get_period_species(df, start, end))
-
-# x = st.slider('x')  # 👈 this is a widget
-# st.write(x, 'squared is', x * x)
-
-# dataframe = np.random.randn(10, 20)
-# st.dataframe(dataframe)
