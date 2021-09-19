@@ -9,36 +9,25 @@ from sqlalchemy import create_engine
 from ibyrd.util import config
 
 
-st.sidebar.markdown("## Select a date range")
-st.title("iByrd: Panorama")
-
-left_column, right_column = st.columns(2)
-
-today = datetime.date.today()
-
-start = st.sidebar.date_input("Start date", today - timedelta(days=365))
-end = st.sidebar.date_input("End date", today)
-
-with left_column:
-    st.write("Start date:", start)
-
-with right_column:
-    st.write("End date:", end)
-
-
+# Global streamlit consifurations
+st.set_page_config(layout="wide")
 st.markdown(
     """
-    \
-    -----"""
+    <style>
+    [data-testid="stSidebar"][aria-expanded="true"] > div:first-child {
+        width: 250px;
+    }
+    [data-testid="stSidebar"][aria-expanded="false"] > div:first-child {
+        width: 250px;
+        margin-left: -250px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
 
 
-st.markdown("### Summary Statistics:")
-
-engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
-
-
-def get_data():
+def get_data() -> pd.DataFrame:
     """Query observational data."""
     sql_query = """
     select t.*, o.date
@@ -52,8 +41,16 @@ def get_data():
     return df
 
 
-def get_period_stats(df, start, end):
-    """Get statistics over a specific period of time."""
+def get_period_stats(df: pd.DataFrame, start: datetime, end: datetime) -> None:
+    """Create descriptive statisic widgets of observations over a period.
+
+    :param df: Dataframe of birding observations.
+    :type df: Pandas DataFrame
+    :param start: Start date of observation window.
+    :type start: datetime
+    :param end: End date of observation window.
+    :type end: datetime
+    """
     period_df = df[(df.date >= start) & (df.date <= end)]
 
     left_column, right_column = st.columns(2)
@@ -65,8 +62,20 @@ def get_period_stats(df, start, end):
         st.write("Unique Species:", period_df.taxon_order.nunique())
 
 
-def get_period_species(df, start, end):
-    """Get table of unique species over a period of time."""
+def get_period_species(
+    df: pd.DataFrame, start: datetime, end: datetime
+) -> pd.DataFrame:
+    """Get table of unique species over a period of time.
+
+    :param df: Dataframe of birding observations.
+    :type df: Pandas DataFrame
+    :param start: Start date of observation window.
+    :type start: datetime
+    :param end: End date of observation window.
+    :type end: datetime
+    :return: Subset or input dataframe with unique species
+    :rtype: Pandas DataFrame
+    """
     period_df = df[(df.date >= start) & (df.date <= end)]
     species_df = period_df[
         ["order_name", "family_com_name", "scientific_name", "common_name"]
@@ -76,13 +85,61 @@ def get_period_species(df, start, end):
     return species_df
 
 
-df = get_data()
-get_period_stats(df, start, end)
-
-st.markdown(
-    """
+def add_line_break():
+    """Generic function to add line break."""
+    return st.markdown(
+        """
     \
      -----"""
+    )
+
+
+# Set default end date as Today
+today = datetime.date.today()
+
+# Extract data using default engine
+engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
+df = get_data()
+
+# Get list of unique orders for multiselect widget
+order_list = list(df.order_name.unique())
+order_list.sort()
+
+# Configure sidebar and sidebar widgets
+st.sidebar.markdown("## Select a date range")
+start = st.sidebar.date_input("Start date", today - timedelta(days=365))
+end = st.sidebar.date_input("End date", today)
+
+# Multiselect to subset to one or more orders
+order_select = st.sidebar.multiselect(
+    "Explore by order:",
+    order_list,
+    default=None,
+    help="If no specific orders are selected, all orders will be included.",
 )
 
-st.dataframe(get_period_species(df, start, end))
+# Default to all orders if multiselect is empty
+if len(order_select) < 1:
+    app_df = df
+else:
+    app_df = df[df.order_name.isin(order_select)]
+
+# Configure main app content
+st.title("iByrd: Panorama")
+
+left_column, right_column = st.columns(2)
+
+# Display date selections
+with left_column:
+    st.write("Start date:", start)
+with right_column:
+    st.write("End date:", end)
+add_line_break()
+
+# Summary statistics
+st.markdown("### Summary Statistics:")
+get_period_stats(app_df, start, end)
+add_line_break()
+
+# DataFrame of observations
+st.dataframe(get_period_species(app_df, start, end))
