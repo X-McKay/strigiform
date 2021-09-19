@@ -1,24 +1,28 @@
 """Test cases for Streamlit app functionality."""
+import sqlite3
+
 import pandas as pd
-from sqlalchemy import create_engine
 
 from ibyrd.app.streamlit import add_line_break
-from ibyrd.util import config
+
+
+# TODO: Clean up testing and restructure as class
 
 
 def test_get_data():
     """Test for get_data function of Streamlit."""
-    engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
-    """Testing api key extraction."""
-    sql_query = """
-    select t.*, o.date
-    from taxonomy t
-    left join observations o
-    on o.taxon_order = t.taxon_order limit 10
-    """
-    df = pd.read_sql(sql_query, engine)
+    # Initialize in-memory db
+    conn = sqlite3.connect("./tests/mock_db.db")
+
+    # Read mock data and insert into mock db
+    test_data = pd.read_csv("./tests/mock_data.csv")
+    test_data.to_sql("mock_data", conn, if_exists="replace")
+
+    sql_query = """select * from mock_data"""
+
+    df = pd.read_sql(sql_query, conn)
     assert len(df) == 10
-    assert len(df.columns) == 17
+    assert len(df.columns) == 19
     return df
 
 
