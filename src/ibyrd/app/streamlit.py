@@ -98,7 +98,7 @@ def add_line_break():
 today = datetime.date.today()
 
 # Extract data using default engine
-engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
+engine = create_engine(config.db_engine_str())  # TODO: Generalize
 df = get_data()
 
 # Get list of unique orders for multiselect widget
