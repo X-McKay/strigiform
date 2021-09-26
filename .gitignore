@@ -10,9 +10,10 @@
 __pycache__/
 .venv
 .vscode
-/src/ibyrd/util/auth.py
+/src/ibyrd/secrets/data/*
 .ENV
 data/*
 database.ini
 .DS_Store
 .notebooks/
+vault-data

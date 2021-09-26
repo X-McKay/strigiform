@@ -6,6 +6,6 @@ from ibyrd.util import config
 
 df = ebird.read_and_clean_data("data/MyEBirdData.csv")
 
-engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
+engine = create_engine(config.db_engine_str())  # TODO: Generalize
 
 df.to_sql("observations", engine, if_exists="replace")

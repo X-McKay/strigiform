@@ -558,6 +558,21 @@ python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
 docs = ["sphinx"]
 
 [[package]]
+name = "hvac"
+version = "0.11.2"
+description = "HashiCorp Vault API client"
+category = "main"
+optional = false
+python-versions = ">=2.7"
+
+[package.dependencies]
+requests = ">=2.21.0"
+six = ">=1.5.0"
+
+[package.extras]
+parser = ["pyhcl (>=0.3.10)"]
+
+[[package]]
 name = "identify"
 version = "2.2.14"
 description = "File identification library for Python"
@@ -2052,7 +2067,7 @@ notebook = ">=4.4.1"
 
 [[package]]
 name = "xdoctest"
-version = "0.15.8"
+version = "0.15.9"
 description = "A rewrite of the builtin doctest module"
 category = "dev"
 optional = false
@@ -2064,11 +2079,11 @@ Pygments = {version = "*", optional = true, markers = "extra == \"colors\""}
 six = "*"
 
 [package.extras]
-all = ["six", "codecov", "scikit-build", "cmake", "ninja", "pybind11", "pygments", "colorama", "pytest", "pytest", "pytest-cov", "pytest", "pytest", "pytest-cov", "typing", "nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel", "pytest", "pytest-cov"]
+all = ["pygments", "cmake", "codecov", "ninja", "pybind11", "scikit-build", "six", "colorama", "pytest", "pytest", "pytest-cov", "pytest", "pytest", "pytest-cov", "typing", "ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat", "pytest", "pytest-cov"]
 colors = ["pygments", "colorama"]
-jupyter = ["nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel"]
-optional = ["pygments", "colorama", "nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel"]
-tests = ["codecov", "scikit-build", "cmake", "ninja", "pybind11", "pytest", "pytest", "pytest-cov", "pytest", "pytest", "pytest-cov", "typing", "nbformat", "nbconvert", "jupyter-client", "ipython", "ipykernel", "pytest", "pytest-cov"]
+jupyter = ["ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat"]
+optional = ["pygments", "colorama", "ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat"]
+tests = ["cmake", "codecov", "ninja", "pybind11", "scikit-build", "pytest", "pytest", "pytest-cov", "pytest", "pytest", "pytest-cov", "typing", "ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat", "pytest", "pytest-cov"]
 
 [[package]]
 name = "zipp"
@@ -2085,7 +2100,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.9"
-content-hash = "d7bdbe1291e39249cbf4cde6e4329a887337e9f1112414e7dc21213a0bcf3fb2"
+content-hash = "2670d09035eff79b7c03542eff3d163a0ad9c8a500778d8af85601fa33a34bcb"
 
 [metadata.files]
 alabaster = [
@@ -2461,6 +2476,10 @@ greenlet = [
     {file = "greenlet-1.1.1-cp39-cp39-win32.whl", hash = "sha256:1796f2c283faab2b71c67e9b9aefb3f201fdfbee5cb55001f5ffce9125f63a45"},
     {file = "greenlet-1.1.1-cp39-cp39-win_amd64.whl", hash = "sha256:4adaf53ace289ced90797d92d767d37e7cdc29f13bd3830c3f0a561277a4ae83"},
     {file = "greenlet-1.1.1.tar.gz", hash = "sha256:c0f22774cd8294078bdf7392ac73cf00bfa1e5e0ed644bd064fdabc5f2a2f481"},
+]
+hvac = [
+    {file = "hvac-0.11.2-py2.py3-none-any.whl", hash = "sha256:3e8a34804b1e20954a2b4991cc13ed9c09b32e50dadd9d3438224481150f6568"},
+    {file = "hvac-0.11.2.tar.gz", hash = "sha256:f905c59d32d88d3f67571fe5a8a78de4659e04798ad809de439f667247d13626"},
 ]
 identify = [
     {file = "identify-2.2.14-py2.py3-none-any.whl", hash = "sha256:113a76a6ba614d2a3dd408b3504446bcfac0370da5995aa6a17fd7c6dffde02d"},
@@ -3434,9 +3453,9 @@ widgetsnbextension = [
     {file = "widgetsnbextension-3.5.1.tar.gz", hash = "sha256:079f87d87270bce047512400efd70238820751a11d2d8cb137a5a5bdbaf255c7"},
 ]
 xdoctest = [
-    {file = "xdoctest-0.15.8-py2.py3-none-any.whl", hash = "sha256:566e2bb2135e144e66ccd390affbe4504a2e96c25ef16260843b9680326cadc9"},
-    {file = "xdoctest-0.15.8-py3-none-any.whl", hash = "sha256:80a57af2f8ca709ab9da111ab3b16ec474f11297b9efcc34709a2c3e56ed9ce6"},
-    {file = "xdoctest-0.15.8.tar.gz", hash = "sha256:ddd128780593161a7398fcfefc49f5f6dfe4c2eb2816942cb53768d43bcab7b9"},
+    {file = "xdoctest-0.15.9-py2.py3-none-any.whl", hash = "sha256:0aa507cd2260e8d88adf1f8ef93d1710b78f2c0c21f007ea95562a8f3be7cd71"},
+    {file = "xdoctest-0.15.9-py3-none-any.whl", hash = "sha256:1c7a713cab41ec50e0ebca1ad5a8e02c2202f1b81f963fa970fec9c87bbcd4f7"},
+    {file = "xdoctest-0.15.9.tar.gz", hash = "sha256:84b00921d9fd6df774b1c5f23a96c65cc35ce78147679b31af95507670547655"},
 ]
 zipp = [
     {file = "zipp-3.5.0-py3-none-any.whl", hash = "sha256:957cfda87797e389580cb8b9e3870841ca991e2125350677b2ca83a0e99390a3"},

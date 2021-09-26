@@ -4,7 +4,7 @@ import psycopg2
 from ibyrd.util import config
 
 
-def create_tables(db_config=config.postgres_config):
+def create_tables(db_config=config.db_config):
     """Create tables in the PostgreSQL database."""
     commands = (
         """
