@@ -1284,7 +1284,7 @@ testing = ["coverage (>=4)", "coverage-enable-subprocess (>=1)", "flaky (>=3)", 
 
 [[package]]
 name = "xdoctest"
-version = "0.15.8"
+version = "0.15.10"
 description = "A rewrite of the builtin doctest module"
 category = "dev"
 optional = false
@@ -1317,7 +1317,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.9"
-content-hash = "cd4d5179e2a352715268a3db170cfe6a365e6262ec1575603360d98837ef73fe"
+content-hash = "b4af62869049ea6aea80e5ac25013e0c89fb1225b61c7cd31910efca55a331ab"
 
 [metadata.files]
 alabaster = [
@@ -2153,9 +2153,8 @@ virtualenv = [
     {file = "virtualenv-20.7.2.tar.gz", hash = "sha256:9ef4e8ee4710826e98ff3075c9a4739e2cb1040de6a2a8d35db0055840dc96a0"},
 ]
 xdoctest = [
-    {file = "xdoctest-0.15.8-py2.py3-none-any.whl", hash = "sha256:566e2bb2135e144e66ccd390affbe4504a2e96c25ef16260843b9680326cadc9"},
-    {file = "xdoctest-0.15.8-py3-none-any.whl", hash = "sha256:80a57af2f8ca709ab9da111ab3b16ec474f11297b9efcc34709a2c3e56ed9ce6"},
-    {file = "xdoctest-0.15.8.tar.gz", hash = "sha256:ddd128780593161a7398fcfefc49f5f6dfe4c2eb2816942cb53768d43bcab7b9"},
+    {file = "xdoctest-0.15.10-py3-none-any.whl", hash = "sha256:7666bd0511df59275dfe94ef94b0fde9654afd14f00bf88902fdc9bcee77d527"},
+    {file = "xdoctest-0.15.10.tar.gz", hash = "sha256:5f16438f2b203860e75ec594dbc38020df7524db0b41bb88467ea0a6030e6685"},
 ]
 zipp = [
     {file = "zipp-3.5.0-py3-none-any.whl", hash = "sha256:957cfda87797e389580cb8b9e3870841ca991e2125350677b2ca83a0e99390a3"},
