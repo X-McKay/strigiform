@@ -38,6 +38,8 @@ mock = "^4.0.3"
 streamlit = "^0.88.0"
 hvac = "^0.11.2"
 marquez-python = "^0.18.0"
+requests-mock = "^1.9.3"
+parameterized = "^0.8.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
