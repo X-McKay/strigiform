@@ -99,52 +99,53 @@ def get_period_species(
     return species_df
 
 
-# Set default end date as Today
-today = datetime.date.today()
+if __name__ == "__main__":
+    # Set default end date as Today
+    today = datetime.date.today()
 
-# Extract data using default engine
-engine = create_engine(config.db_engine_str())  # TODO: Generalize
-df = get_data()
+    # Extract data using default engine
+    engine = create_engine(config.db_engine_str())  # TODO: Generalize
+    df = get_data()
 
-# Get list of unique orders for multiselect widget
-order_list = list(df.order_name.unique())
-order_list.sort()
+    # Get list of unique orders for multiselect widget
+    order_list = list(df.order_name.unique())
+    order_list.sort()
 
-# Configure sidebar and sidebar widgets
-st.sidebar.markdown("## Select a date range")
-start = st.sidebar.date_input("Start date", today - timedelta(days=365))
-end = st.sidebar.date_input("End date", today)
+    # Configure sidebar and sidebar widgets
+    st.sidebar.markdown("## Select a date range")
+    start = st.sidebar.date_input("Start date", today - timedelta(days=365))
+    end = st.sidebar.date_input("End date", today)
 
-# Multiselect to subset to one or more orders
-order_select = st.sidebar.multiselect(
-    "Explore by order:",
-    order_list,
-    default=None,
-    help="If no specific orders are selected, all orders will be included.",
-)
+    # Multiselect to subset to one or more orders
+    order_select = st.sidebar.multiselect(
+        "Explore by order:",
+        order_list,
+        default=None,
+        help="If no specific orders are selected, all orders will be included.",
+    )
 
-# Default to all orders if multiselect is empty
-if len(order_select) < 1:
-    app_df = df
-else:
-    app_df = df[df.order_name.isin(order_select)]
+    # Default to all orders if multiselect is empty
+    if len(order_select) < 1:
+        app_df = df
+    else:
+        app_df = df[df.order_name.isin(order_select)]
 
-# Configure main app content
-st.title("iByrd: Panorama")
+    # Configure main app content
+    st.title("iByrd: Panorama")
 
-left_column, right_column = st.columns(2)
+    left_column, right_column = st.columns(2)
 
-# Display date selections
-with left_column:
-    st.write("Start date:", start)
-with right_column:
-    st.write("End date:", end)
-add_line_break()
+    # Display date selections
+    with left_column:
+        st.write("Start date:", start)
+    with right_column:
+        st.write("End date:", end)
+    add_line_break()
 
-# Summary statistics
-st.markdown("### Summary Statistics:")
-get_period_stats(app_df, start, end)
-add_line_break()
+    # Summary statistics
+    st.markdown("### Summary Statistics:")
+    get_period_stats(app_df, start, end)
+    add_line_break()
 
-# DataFrame of observations
-st.dataframe(get_period_species(app_df, start, end))
+    # DataFrame of observations
+    st.dataframe(get_period_species(app_df, start, end))
