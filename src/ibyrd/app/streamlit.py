@@ -30,6 +30,15 @@ st.markdown(
 )
 
 
+def add_line_break():
+    """Generic function to add line break."""
+    return st.markdown(
+        """
+    \
+     -----"""
+    )
+
+
 def get_data() -> pd.DataFrame:
     """Query observational data."""
     sql_query = """
@@ -88,15 +97,6 @@ def get_period_species(
     species_df.drop_duplicates(inplace=True)
     species_df.reset_index(drop=True, inplace=True)
     return species_df
-
-
-def add_line_break():
-    """Generic function to add line break."""
-    return st.markdown(
-        """
-    \
-     -----"""
-    )
 
 
 # Set default end date as Today
