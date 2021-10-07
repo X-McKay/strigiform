@@ -1,28 +1,22 @@
 #!/bin/bash -e
 
-install_postgres() {
-    echo "Installing postgres via brew..."
-    brew install postgresql
-}
-
 run_postgres_on_start() {
     echo "Configuring postgres to run on startup..."
     pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
 }
 
-check_postgres_version() {
-    postgres -V
-}
-
- list_postgres_users () {
-    psql postgres
-    postgres=# \du
- }
-
 create_ibyrd_user () {
-    psql postgres
-    CREATE ROLE ibyrd WITH LOGIN PASSWORD 'birding';
-    ALTER ROLE ibyrd CREATEDB;
-    \du
-    \q # exit
+    echo "Creating a new postgres role and user named 'ibyrd'..."
+    read -sp 'Please provide a password: ' passinput
+    exec psql  postgres -c '\x' -c "CREATE DATABASE ibyrd;"
+    exec psql -d 'ibyrd' -c '\x' -c 'CREATE ROLE ibyrd WITH LOGIN CREATEDB PASSWORD '$passinput';'
+    exec psql -d 'ibyrd' -c '\x' -c "ALTER ROLE ibyrd CREATEDB;"
+    echo
+    echo "Thank you, a new postgres role and db have been created!"
 }
+
+# # Uncomment to run Postgres on start
+# run_postgres_on_start
+
+# TODO: Additional testing
+create_ibyrd_user

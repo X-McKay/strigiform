@@ -7,6 +7,9 @@ import streamlit as st
 from sqlalchemy import create_engine
 
 from ibyrd.util import config
+from ibyrd.util import logger
+
+logger = logger.logger_init(name=__name__)
 
 
 # Global streamlit consifurations
@@ -36,8 +39,10 @@ def get_data() -> pd.DataFrame:
     on o.taxon_order = t.taxon_order
     """
 
+    logger.info("Querying database for taxonomy and observations...")
     df = pd.read_sql(sql_query, engine)
     df.date = df.date.dt.date
+    logger.info("Query complete!")
     return df
 
 

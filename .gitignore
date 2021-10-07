@@ -17,3 +17,4 @@ database.ini
 .DS_Store
 .notebooks/
 vault-data
+/src/ibyrd/sandbox/

@@ -3,8 +3,11 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 from ibyrd.util import config
+from ibyrd.util import logger
 
-engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
+logger = logger.logger_init(name=__name__)
+
+engine = create_engine(config.db_engine_str())  # TODO: Generalize
 
 
 def get_ll_stats():

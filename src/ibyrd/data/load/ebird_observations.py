@@ -1,18 +1,26 @@
-"""Placeholder for functionality to import personal checklists."""
+"""Populate database tables."""
 import argparse
 
 import pandas as pd
+from sqlalchemy import create_engine
+
+from ibyrd.util import config
+from ibyrd.util import logger
+
+logger = logger.logger_init(name=__name__)
 
 
 def read_and_clean_data(file_path):
-    """Read Ebird csv export to a pandas DataFrame.
+    """Read eBird csv export to a pandas DataFrame.
 
     :param args: file path
     :type args: string
     :return: Ebird extract of personal submissions
     :rtype: pandas DataFrame
     """
+    logger.info("Reading eBird observation export from {file_path}")
     df = pd.read_csv(file_path)
+    logger.info("Data successfully read. Performing quick tidy up.")
 
     df.columns = [
         "submission_id",
@@ -43,6 +51,7 @@ def read_and_clean_data(file_path):
     df.date = pd.to_datetime(df.date)
 
     df.sort_values("submission_id", ascending=False, inplace=True)
+    logger.info("eBird observations successfully read and cleaned.")
 
     return df
 
@@ -53,9 +62,10 @@ if __name__ == "__main__":
     parser.add_argument("--file-path", type=str, default="data/MyEBirdData.csv")
 
     args = parser.parse_args()
+    engine = create_engine(config.db_engine_str())
 
     df = read_and_clean_data(args.file_path)
 
-    # Note: Quick tests/qa
-    print(df.head())
-    # df.to_csv("data/tst.csv")
+    logger.info("Writing eBird observations to db...")
+    df.to_sql("observations", engine, if_exists="replace")
+    logger.info("Load of eBird observations complete!")

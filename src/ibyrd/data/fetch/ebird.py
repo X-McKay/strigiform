@@ -3,7 +3,10 @@ import json
 import os
 
 from ibyrd.util import config
+from ibyrd.util import logger
 from ibyrd.util.api import api_extract
+
+logger = logger.logger_init(name=__name__)
 
 
 ebird_key = os.getenv("EBIRD_KEY")

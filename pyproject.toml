@@ -37,6 +37,7 @@ SQLAlchemy = "1.4.22"
 mock = "^4.0.3"
 streamlit = "^0.88.0"
 hvac = "^0.11.2"
+marquez-python = "^0.18.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

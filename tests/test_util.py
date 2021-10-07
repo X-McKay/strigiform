@@ -52,13 +52,11 @@ def test_ebird_auth():
 
 def test_postgres_config():
     """Test extraction of db params."""
-    postgres_params = config.postgres_config(filename="./tests/mock_database.ini")
+    postgres_params = config.db_config(filename="./tests/mock_database.ini")
     assert type(postgres_params) == dict
 
 
 def test_postgres_engine_str():
     """Test generation of sqlalchemy engine string."""
-    connenction_string = config.postgres_engine_str(
-        filename="./tests/mock_database.ini"
-    )
+    connenction_string = config.db_engine_str(filename="./tests/mock_database.ini")
     assert type(connenction_string) == str
