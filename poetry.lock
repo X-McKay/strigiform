@@ -626,7 +626,7 @@ test = ["hypothesis (>=3.58)", "pytest (>=6.0)", "pytest-xdist"]
 
 [[package]]
 name = "pandas-stubs"
-version = "1.2.0.16"
+version = "1.2.0.21"
 description = "Type annotations for Pandas"
 category = "main"
 optional = false
@@ -1747,8 +1747,8 @@ pandas = [
     {file = "pandas-1.3.3.tar.gz", hash = "sha256:272c8cb14aa9793eada6b1ebe81994616e647b5892a370c7135efb2924b701df"},
 ]
 pandas-stubs = [
-    {file = "pandas-stubs-1.2.0.16.tar.gz", hash = "sha256:884361aa6ada0e0b97af455749b583b63e0fb3d74a6aff9edeabb3e5224c9919"},
-    {file = "pandas_stubs-1.2.0.16-py3-none-any.whl", hash = "sha256:3abe47f9aaf71f6cf588b386e69b909b51d67bf0d2f90d7b2808c51460004793"},
+    {file = "pandas-stubs-1.2.0.21.tar.gz", hash = "sha256:3a47cbb2254af7555c99034c55326ba85d8c690498cb5d79071eaa42b0292dc2"},
+    {file = "pandas_stubs-1.2.0.21-py3-none-any.whl", hash = "sha256:a9bc9f01ee239223703b0fc4f520e8a895ab760a72f94ae8f8a39d1038f11bf0"},
 ]
 pathspec = [
     {file = "pathspec-0.9.0-py2.py3-none-any.whl", hash = "sha256:7d15c4ddb0b5c802d161efc417ec1a2558ea2653c2e8ad9c19098201dc1c993a"},
