@@ -80,7 +80,7 @@ source = ["kingfisher"]
 
 [tool.coverage.report]
 show_missing = true
-fail_under = 75
+fail_under = 60
 
 [tool.mypy]
 strict = true

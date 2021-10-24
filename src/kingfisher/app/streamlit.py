@@ -6,9 +6,9 @@ import pandas as pd
 import streamlit as st
 from sqlalchemy import create_engine
 
+from kingfisher.app.queries import observation_query
 from kingfisher.util import config
 from kingfisher.util import logger
-from kingfisher.app.queries import observation_query
 
 logger = logger.logger_init(name=__name__)
 
@@ -44,7 +44,7 @@ def get_data(query: str, engine) -> pd.DataFrame:
     """Query observational data."""
     logger.info("Querying database for taxonomy and observations...")
     df = pd.read_sql(query, engine)
-    df['date'] = pd.to_datetime(df['date'])
+    df["date"] = pd.to_datetime(df["date"])
     df.date = df.date.dt.date
     logger.info("Query complete!")
     return df
@@ -61,10 +61,10 @@ def get_period_stats(df: pd.DataFrame, start: datetime, end: datetime) -> None:
     :type end: datetime
     """
     if start >= end:
-        raise ValueError('Start date should be greater than or equal to date.')
-    
+        raise ValueError("Start date should be greater than or equal to date.")
+
     if len(df) < 1:
-        raise ValueError('Attempted to subset an empty dataframe.')
+        raise ValueError("Attempted to subset an empty dataframe.")
 
     period_df = df[(df.date >= start) & (df.date <= end)]
 
@@ -75,7 +75,7 @@ def get_period_stats(df: pd.DataFrame, start: datetime, end: datetime) -> None:
         st.write("Unique Families:", period_df.family_sci_name.nunique())
     with right_column:
         st.write("Unique Species:", period_df.taxon_order.nunique())
-    
+
 
 def get_period_species(
     df: pd.DataFrame, start: datetime, end: datetime
