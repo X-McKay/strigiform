@@ -1,7 +1,7 @@
 """Create database tables for storing information."""
 import psycopg2
 
-from ibyrd.util import config
+from kingfisher.util import config
 
 
 def create_tables(db_config=config.postgres_config):

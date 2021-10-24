@@ -5,7 +5,7 @@ from urllib.parse import urlencode
 
 import requests
 
-from ibyrd.util import config
+from kingfisher.util import config
 
 
 _ebird_api_defaults = {

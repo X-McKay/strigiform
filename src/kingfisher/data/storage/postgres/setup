@@ -19,10 +19,10 @@ check_postgres_version() {
     postgres=# \du
  }
 
-create_ibyrd_user () {
+create_kingfisher_user () {
     psql postgres
-    CREATE ROLE ibyrd WITH LOGIN PASSWORD 'birding';
-    ALTER ROLE ibyrd CREATEDB;
+    CREATE ROLE kingfisher WITH LOGIN PASSWORD 'birding';
+    ALTER ROLE kingfisher CREATEDB;
     \du
     \q # exit
 }

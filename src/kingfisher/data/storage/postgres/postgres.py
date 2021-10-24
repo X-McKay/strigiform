@@ -1,7 +1,7 @@
 """Setting up PostGres to store data."""
 import psycopg2
 
-from ibyrd.util.config import postgres_config
+from kingfisher.util.config import postgres_config
 
 
 def connect():

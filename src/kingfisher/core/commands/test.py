@@ -3,7 +3,7 @@ import os
 
 import click
 
-from ibyrd.core.commands._helpers import execute_shell_command
+from kingfisher.core.commands._helpers import execute_shell_command
 
 
 def get_root_dir():

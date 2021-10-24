@@ -6,8 +6,8 @@ Reference
     :backlinks: none
 
 
-ibyrd.__main__
+kingfisher.__main__
 --------------
 
-.. automodule:: ibyrd.__main__
+.. automodule:: kingfisher.__main__
    :members:

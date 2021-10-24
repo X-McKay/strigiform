@@ -2,8 +2,8 @@
 import json
 import os
 
-from ibyrd.util import config
-from ibyrd.util.api import api_extract
+from kingfisher.util import config
+from kingfisher.util.api import api_extract
 
 
 ebird_key = os.getenv("EBIRD_KEY")

@@ -4,7 +4,7 @@ import textwrap
 import click
 import requests
 
-from ibyrd.util.config import EBIRD_HOTSPOT_URL
+from kingfisher.util.config import EBIRD_HOTSPOT_URL
 
 
 def clean_echo_results(data) -> None:
