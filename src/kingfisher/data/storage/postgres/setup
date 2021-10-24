@@ -1,0 +1,22 @@
+#!/bin/bash -e
+
+run_postgres_on_start() {
+    echo "Configuring postgres to run on startup..."
+    pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+}
+
+create_kingfisher_user () {
+    echo "Creating a new postgres role and user named 'kingfisher'..."
+    read -sp 'Please provide a password: ' passinput
+    exec psql  postgres -c '\x' -c "CREATE DATABASE kingfisher;"
+    exec psql -d 'kingfisher' -c '\x' -c 'CREATE ROLE kingfisher WITH LOGIN CREATEDB PASSWORD '$passinput';'
+    exec psql -d 'kingfisher' -c '\x' -c "ALTER ROLE kingfisher CREATEDB;"
+    echo
+    echo "Thank you, a new postgres role and db have been created!"
+}
+
+# # Uncomment to run Postgres on start
+# run_postgres_on_start
+
+# TODO: Additional testing
+create_kingfisher_user
