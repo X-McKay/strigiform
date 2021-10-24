@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "ibyrd"
+name = "kingfisher"
 version = "0.0.1"
-description = "ibyrd"
+description = "kingfisher"
 authors = ["Alex McKay <aldmckay@gmail.com>"]
 license = "MIT"
 readme = "README.rst"
-homepage = "https://github.com/X-McKay/ibyrd"
-repository = "https://github.com/X-McKay/ibyrd"
-documentation = "https://ibyrd.readthedocs.io"
+homepage = "https://github.com/X-McKay/kingfisher"
+repository = "https://github.com/X-McKay/kingfisher"
+documentation = "https://kingfisher.readthedocs.io"
 
 classifiers = [
     "Programming Language :: Python :: 3.7",
@@ -16,7 +16,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/X-McKay/ibyrd/releases"
+Changelog = "https://github.com/X-McKay/kingfisher/releases"
 
 [tool.poetry.dependencies]
 python = "^3.7.9"
@@ -69,14 +69,14 @@ requests-mock = "^1.9.3"
 parameterized = "^0.8.1"
 
 [tool.poetry.scripts]
-ibyrd = "ibyrd.core.cli:main"
+kingfisher = "kingfisher.core.cli:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["ibyrd"]
+source = ["kingfisher"]
 
 [tool.coverage.report]
 show_missing = true

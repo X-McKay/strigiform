@@ -1,6 +1,6 @@
 Usage
 =====
 
-.. click:: ibyrd.__main__:main
-   :prog: ibyrd
+.. click:: kingfisher.__main__:main
+   :prog: kingfisher
    :nested: full

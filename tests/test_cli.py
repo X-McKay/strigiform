@@ -2,7 +2,7 @@
 import pytest
 from click.testing import CliRunner
 
-from ibyrd.core.cli import main
+from kingfisher.core.cli import main
 
 
 @pytest.fixture
