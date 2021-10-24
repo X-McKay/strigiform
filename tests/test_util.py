@@ -4,8 +4,8 @@ import unittest
 
 import mock
 
-from ibyrd.util import api
-from ibyrd.util import config
+from kingfisher.util import api
+from kingfisher.util import config
 
 
 class TestApiUtil(unittest.TestCase):

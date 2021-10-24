@@ -4,8 +4,8 @@ from io import StringIO
 import pandas as pd
 from sqlalchemy import create_engine
 
-from ibyrd.data.fetch import ebird
-from ibyrd.util import config
+from kingfisher.data.fetch import ebird
+from kingfisher.util import config
 
 data = ebird.get_taxonomy()
 temp_data = StringIO(data, newline="\n")

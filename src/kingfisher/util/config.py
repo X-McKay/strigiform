@@ -1,4 +1,4 @@
-"""File to store ibyrd configurations."""
+"""File to store kingfisher configurations."""
 from configparser import ConfigParser
 
 # eBird API 2.0: https://documenter.getpostman.com/view/664302/S1ENwy59#intro
