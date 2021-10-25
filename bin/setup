@@ -13,6 +13,7 @@ source "${bin_dir}/set-env.sh"
 
 # Install asdf and plugins
 asdf_add_required_plugins
+asdf_install_all_components
 asdf install $(grep "python" "${root_dir}/.tool-versions")
 asdf reshim
 

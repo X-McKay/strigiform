@@ -1,6 +1,9 @@
 """File to store kingfisher configurations."""
 from configparser import ConfigParser
 
+# TODO: allow AWS, local, etc.
+DEFAULT_SECRET_PROVIDER = "vault"  # noqa: S105
+
 # eBird API 2.0: https://documenter.getpostman.com/view/664302/S1ENwy59#intro
 # eBird 2.0 URLS
 EBIRD_HOTSPOT_URL = "https://api.ebird.org/v2/ref/hotspot/geo?"
@@ -29,7 +32,7 @@ DEFAULT_MAX_OBSERVATIONS = None
 DEFAULT_MAX_LOCATIONS = 10
 
 
-def postgres_config(filename="database.ini", section="postgresql"):
+def db_config(filename="database.ini", section="postgresql"):
     """Parse postgres connection info from ini file.
 
     :param filename: database configuration file, defaults to "database.ini"
@@ -59,15 +62,15 @@ def postgres_config(filename="database.ini", section="postgresql"):
     return db
 
 
-def postgres_engine_str(filename="database.ini", section="postgresql"):
+def db_engine_str(filename="database.ini", section="postgresql"):
     """Generate connection string from database.ini file.
 
     :return: connection string for sqlalchemy
     :rtype: string
     """
-    config = postgres_config(filename, section)
+    config = db_config(filename, section)
     user = config["user"]
     password = config["password"]
     host = config["host"]
     database = config["database"]
-    return f"postgresql://{user}:{password}@{host}/{database}"
+    return f"{section}://{user}:{password}@{host}/{database}"

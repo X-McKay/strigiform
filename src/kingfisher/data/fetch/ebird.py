@@ -3,7 +3,10 @@ import json
 import os
 
 from kingfisher.util import config
+from kingfisher.util import logger
 from kingfisher.util.api import api_extract
+
+logger = logger.logger_init(name=__name__)
 
 
 ebird_key = os.getenv("EBIRD_KEY")

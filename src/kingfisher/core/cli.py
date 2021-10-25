@@ -1,6 +1,7 @@
 """kingfisher CLI functionality."""
 import functools
 import os
+from subprocess import SubprocessError
 
 import click
 from botocore.exceptions import ClientError
@@ -9,7 +10,10 @@ from click_help_colors import HelpColorsGroup
 
 from kingfisher.core.commands._helpers import CliColors
 from kingfisher.core.commands.hotspots import hotspot_cmd
+from kingfisher.core.commands.launch import launch_app_cmd
 from kingfisher.core.commands.test import nox_cmd
+from kingfisher.core.commands.vault import launch_vault_cmd
+
 
 click.option = functools.partial(click.option, show_default=True)
 
@@ -55,8 +59,28 @@ def hotspots(lat: float, lon: float, fmt: str, miles: int):
     hotspot_cmd(lat, lon, fmt, miles)
 
 
+@main.command(cls=HelpColorsCommand, help_options_color="blue")
+def launch():
+    """Launches kingfisher webapp."""
+    launch_app_cmd()
+
+
+@main.command(cls=HelpColorsCommand, help_options_color="blue")
+def vault():
+    """Launches Hashicorp Vault."""
+    try:
+        launch_vault_cmd()
+    except SubprocessError:
+        click.secho(
+            """Failed to start Vault...
+        Vault server may be running already?
+            You can verify by running 'vault status'. \n""",
+            fg="yellow",
+        )
+
+
 if __name__ == "__main__":
     try:
         main(prog_name="kingfisher")
     except ClientError:
-        click.secho("Command failed... please debug.")
+        click.secho("Command failed... please debug. \n", fg="yellow")

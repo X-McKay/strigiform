@@ -1,5 +1,5 @@
 #!/bin/bash
-# Note: credit to Tim Rodriguez for environtment set-up structure
+# Note: credit to Tim Rodriguez@https://github.com/twrodriguez
 
 install_asdf() {
     echo "Attempting to install asdf..."
@@ -52,6 +52,19 @@ asdf_ordered_install() {
     fi
 }
 
+asdf_upgrade() {
+  version=$(asdf list-all "$1" | grep -o "^[0-9.]\+$" | sort -V | tail -1)
+  asdf install "$1" "$version"
+  asdf global "$1" "$version"
+}
+
+asdf_install_latest() {
+  for lang in "$@"; do
+    asdf plugin-add "$lang"
+    asdf_upgrade "$lang"
+  done
+}
+
 asdf_add_required_plugins() {
     local tool_versions_file="${1}"
     if test -z "${tool_versions_file}"; then
@@ -61,6 +74,15 @@ asdf_add_required_plugins() {
     for plugin in $plugins; do
         if ! asdf list "${plugin}" > /dev/null 2>&1; then
             asdf plugin-add "${plugin}"
+        fi
+    done
+}
+
+
+asdf_install_all_components() {
+    for component in postgres mysql redis; do
+        if ! asdf list ${component} > /dev/null 2>&1; then
+            asdf_install_latest ${component}
         fi
     done
 }

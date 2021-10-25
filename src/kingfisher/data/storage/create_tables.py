@@ -2,12 +2,15 @@
 import psycopg2
 
 from kingfisher.util import config
+from kingfisher.util import logger
+
+logger = logger.logger_init(name=__name__)
 
 
-def create_tables(db_config=config.postgres_config):
-    """Create tables in the PostgreSQL database."""
-    commands = (
-        """
+# TODO: Determine if this is necessary given load via sqlalchemy+Pandas
+def create_tables(db_config=config.db_config):
+    """Create tables in the database."""
+    commands = """
         CREATE TABLE IF NOT EXISTS taxonomy (
             scientific_name VARCHAR(255) NOT NULL,
             common_name VARCHAR(255) NOT NULL,
@@ -25,15 +28,10 @@ def create_tables(db_config=config.postgres_config):
             extinct_year VARCHAR(4),
             family_code VARCHAR(255) NOT NULL
         )
-        """,
-        """ CREATE TABLE IF NOT EXISTS test (
-                part_id SERIAL PRIMARY KEY,
-                part_name VARCHAR(255) NOT NULL
-                )
-        """,
-    )
+        """
     conn = None
     try:
+        logger.info("Creating tables...")
         # read the connection parameters
         params = db_config()
         # connect to the PostgreSQL server
@@ -46,6 +44,7 @@ def create_tables(db_config=config.postgres_config):
         cur.close()
         # commit the changes
         conn.commit()
+        logger.info("Tables successfully created!")
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
     finally:
