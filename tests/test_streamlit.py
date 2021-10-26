@@ -80,9 +80,12 @@ class Streamlit(unittest.TestCase):
         """Test for generic line break."""
         assert add_line_break() is not None
 
-    def test_main(self):
+    @patch("kingfisher.app.streamlit.main")
+    def test_main(self, mock_main):
         """Test for main."""
+        self.get_test_data()
+        mock_main = "Mock"
         with patch("kingfisher.app.streamlit.__name__", "None"):
             import kingfisher.app.streamlit as st_app
 
-            assert st_app.main() is None
+            assert st_app.main() != mock_main
