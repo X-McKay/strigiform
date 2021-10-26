@@ -24,7 +24,7 @@ kingfisher
 .. |Tests| image:: https://github.com/X-McKay/kingfisher/workflows/Tests/badge.svg
    :target: https://github.com/X-McKay/kingfisher/actions?workflow=Tests
    :alt: Tests
-.. |Codecov| image:: https://codecov.io/gh/X-McKay/kingfisher/branch/main/graph/badge.svg
+.. |Codecov| image:: https://codecov.io/gh/X-McKay/kingfisher/branch/develop/graph/badge.svg
    :target: https://codecov.io/gh/X-McKay/kingfisher
    :alt: Codecov
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
