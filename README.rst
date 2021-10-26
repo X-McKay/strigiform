@@ -1,3 +1,5 @@
+.. image:: https://github.com/X-McKay/kingfisher/blob/develop/artifacts/kingfisher_logo.png
+
 ===============================
 kingfisher
 ===============================
@@ -35,7 +37,7 @@ kingfisher
    :alt: Black
 
 
-kingfisher is a Python package that provides tools for Birders and Researchers to:
+Kingfisher is a Python mono-repo that provides tools for Birders and Researchers to:
 
 * Explore and visualize information for Birders
 * Easily interact with eBird APIs.
