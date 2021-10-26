@@ -1,5 +1,3 @@
-.. image:: https://github.com/X-McKay/kingfisher/blob/develop/artifacts/kingfisher_logo.png
-
 ===============================
 kingfisher
 ===============================
