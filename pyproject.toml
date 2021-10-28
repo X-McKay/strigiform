@@ -33,7 +33,7 @@ pytest-responsemock = {extras = ["dev"], version = "^1.0.1"}
 psycopg2 = "^2.9.1"
 configparser = "^5.0.2"
 sql = "^0.4.0"
-SQLAlchemy = "1.4.23"
+SQLAlchemy = "1.4.26"
 mock = "^4.0.3"
 streamlit = "^1.0.0"
 requests-mock = "*"
