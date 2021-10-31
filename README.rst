@@ -1,5 +1,5 @@
 ===============================
-iByrd
+strigiform
 ===============================
 
 
@@ -9,23 +9,23 @@ iByrd
 
 |pre-commit| |Black|
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/ibyrd.svg
-   :target: https://pypi.org/project/ibyrd/
+.. |PyPI| image:: https://img.shields.io/pypi/v/strigiform.svg
+   :target: https://pypi.org/project/strigiform/
    :alt: PyPI
-.. |Python Version| image:: https://img.shields.io/pypi/pyversions/ibyrd
-   :target: https://pypi.org/project/ibyrd
+.. |Python Version| image:: https://img.shields.io/pypi/pyversions/strigiform
+   :target: https://pypi.org/project/strigiform
    :alt: Python Version
-.. |License| image:: https://img.shields.io/pypi/l/ibyrd
+.. |License| image:: https://img.shields.io/pypi/l/strigiform
    :target: https://opensource.org/licenses/MIT
    :alt: License
-.. |Read the Docs| image:: https://img.shields.io/readthedocs/ibyrd/latest.svg?label=Read%20the%20Docs
-   :target: https://ibyrd.readthedocs.io/
-   :alt: Read the documentation at https://ibyrd.readthedocs.io/
-.. |Tests| image:: https://github.com/X-McKay/ibyrd/workflows/Tests/badge.svg
-   :target: https://github.com/X-McKay/ibyrd/actions?workflow=Tests
+.. |Read the Docs| image:: https://img.shields.io/readthedocs/strigiform/latest.svg?label=Read%20the%20Docs
+   :target: https://strigiform.readthedocs.io/
+   :alt: Read the documentation at https://strigiform.readthedocs.io/
+.. |Tests| image:: https://github.com/X-McKay/strigiform/workflows/Tests/badge.svg
+   :target: https://github.com/X-McKay/strigiform/actions?workflow=Tests
    :alt: Tests
-.. |Codecov| image:: https://codecov.io/gh/X-McKay/ibyrd/branch/main/graph/badge.svg
-   :target: https://codecov.io/gh/X-McKay/ibyrd
+.. |Codecov| image:: https://codecov.io/gh/X-McKay/strigiform/branch/develop/graph/badge.svg
+   :target: https://codecov.io/gh/X-McKay/strigiform
    :alt: Codecov
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
    :target: https://github.com/pre-commit/pre-commit
@@ -35,7 +35,7 @@ iByrd
    :alt: Black
 
 
-ibyrd is a Python package that provides tools for Birders and Researchers to:
+strigiform is a Python mono-repo that provides tools for Birders and Researchers to:
 
 * Explore and visualize information for Birders
 * Easily interact with eBird APIs.
@@ -44,7 +44,7 @@ ibyrd is a Python package that provides tools for Birders and Researchers to:
 Project Maturity and readiness
 ------------------------------
 
-iByrd is under active development; many key workflows and best practices are still being worked out.
+strigiform is under active development; many key workflows and best practices are still being worked out.
 More seamless interaction with eBird products is in development, as well as
 general improvement the overall user experience.
 
@@ -66,14 +66,19 @@ Requirements
 
 `ASDF`_ for managing multiple runtime verisions.
 
+`eBird API Key`_ to dyanamically use and access eBird data.
+
+* Once an API Key has been obtained, store it in an Environment variable named **EBIRD_KEY**
+
+
 Installation
 ------------
 
-You can install *ibyrd* via pip_ from PyPI_:
+You can install *strigiform* via pip_ from PyPI_:
 
 .. code:: console
 
-   $ pip install ibyrd
+   $ pip install strigiform
 
 
 Usage
@@ -95,7 +100,7 @@ License
 -------
 
 Distributed under the terms of the `MIT license`_,
-*ibyrd* is free and open source software.
+*strigiform* is free and open source software.
 
 
 Issues
@@ -121,9 +126,10 @@ Credits
 .. _MIT license: https://opensource.org/licenses/MIT
 .. _PyPI: https://pypi.org/
 .. _Hypermodern Python Cookiecutter: https://github.com/cjolowicz/cookiecutter-hypermodern-python
-.. _file an issue: https://github.com/X-McKay/ibyrd/issues
+.. _file an issue: https://github.com/X-McKay/strigiform/issues
 .. _pip: https://pip.pypa.io/
 .. github-only
 .. _Contributor Guide: CONTRIBUTING.rst
-.. _Usage: https://ibyrd.readthedocs.io/en/latest/usage.html
+.. _Usage: https://strigiform.readthedocs.io/en/latest/usage.html
 .. _ASDF: http://asdf-vm.com/
+.. _eBird API Key: https://ebird.org/data/download

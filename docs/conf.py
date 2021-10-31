@@ -2,7 +2,7 @@
 from datetime import datetime
 
 
-project = "ibyrd"
+project = "strigiform"
 author = "Alex McKay"
 copyright = f"{datetime.now().year}, {author}"
 extensions = [

@@ -1,1 +1,1 @@
-"""Test suite for the ibyrd package."""
+"""Test suite for the strigiform package."""

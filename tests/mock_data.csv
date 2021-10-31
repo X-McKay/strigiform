@@ -1,0 +1,11 @@
+scientific_name,common_name,species_code,category,taxon_order,com_name_codes,sci_name_codes,banding_codes,order_name,family_com_name,family_sci_name,report_as,extinct,extinct_year,family_code,date
+Struthio camelus,Common Ostrich,ostric2,species,1.0,COOS,STCA,,Struthioniformes,Ostriches,Struthionidae,,,,struth1,2021-01-02
+Struthio molybdophanes,Somali Ostrich,ostric3,species,6.0,SOOS,STMO,,Struthioniformes,Ostriches,Struthionidae,,,,struth1,2021-01-02
+Rhea americana,Greater Rhea,grerhe1,species,8.0,GRRH,RHAM,,Rheiformes,Rheas,Rheidae,,,,rheida1,2021-01-02
+Rhea pennata,Lesser Rhea,lesrhe2,species,14.0,LERH,RHPE,,Rheiformes,Rheas,Rheidae,,,,rheida1,2021-01-02
+Nothocercus julius,Tawny-breasted Tinamou,tabtin1,species,19.0,TBTI,NOJU,,Tinamiformes,Tinamous,Tinamidae,,,,tinami1,2021-01-02
+Nothocercus bonapartei,Highland Tinamou,higtin1,species,20.0,,NOBO,HITI,Tinamiformes,Tinamous,Tinamidae,,,,tinami1,2021-01-02
+Nothocercus nigrocapillus,Hooded Tinamou,hootin1,species,27.0,HOTI,NONI,,Tinamiformes,Tinamous,Tinamidae,,,,tinami1,2021-01-02
+Tinamus tao,Gray Tinamou,grytin1,species,30.0,GRTI,TITA,,Tinamiformes,Tinamous,Tinamidae,,,,tinami1,2021-01-02
+Tinamus solitarius,Solitary Tinamou,soltin1,species,35.0,SOTI,TISO,,Tinamiformes,Tinamous,Tinamidae,,,,tinami1,2021-01-02
+Tinamus osgoodi,Black Tinamou,blatin1,species,36.0,BLTI,TIOS,,Tinamiformes,Tinamous,Tinamidae,,,,tinami1,2021-01-02

@@ -4,7 +4,7 @@ import textwrap
 import click
 import requests
 
-from ibyrd.commons.config import HOTSPOT_API_URL
+from strigiform.util.config import EBIRD_HOTSPOT_URL
 
 
 def clean_echo_results(data) -> None:
@@ -27,7 +27,7 @@ def hotspot_cmd(
         raise ValueError
         exit
 
-    with requests.get(HOTSPOT_API_URL, params=parameters) as response:
+    with requests.get(EBIRD_HOTSPOT_URL, params=parameters) as response:
         response.raise_for_status()
         data = response.json()
 

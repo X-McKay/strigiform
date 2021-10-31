@@ -6,6 +6,7 @@ from textwrap import dedent
 
 import nox
 
+
 try:
     from nox_poetry import Session
     from nox_poetry import session
@@ -16,10 +17,10 @@ except ImportError:
     Please install it using the following command:
 
     {sys.executable} -m pip install nox-poetry"""
-    raise SystemExit(dedent(message))
+    raise SystemExit(dedent(message)) from None
 
 
-package = "ibyrd"
+package = "strigiform"
 python_versions = ["3.9", "3.8", "3.7"]
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (

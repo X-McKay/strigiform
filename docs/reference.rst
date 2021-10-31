@@ -6,8 +6,8 @@ Reference
     :backlinks: none
 
 
-ibyrd.__main__
+strigiform.__main__
 --------------
 
-.. automodule:: ibyrd.__main__
+.. automodule:: strigiform.__main__
    :members:

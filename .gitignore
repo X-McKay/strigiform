@@ -10,5 +10,10 @@
 __pycache__/
 .venv
 .vscode
-/src/ibyrd/util/auth.py
+/src/strigiform/util/auth.py
 .ENV
+data/*
+database.ini
+.DS_Store
+vault-data
+.notebooks
