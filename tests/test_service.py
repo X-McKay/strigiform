@@ -3,7 +3,7 @@ import pytest
 import requests
 from click.testing import CliRunner
 
-from kingfisher.data.fetch import ebird
+from strigiform.data.fetch import ebird
 
 
 @pytest.fixture

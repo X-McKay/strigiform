@@ -1,6 +1,6 @@
 Usage
 =====
 
-.. click:: kingfisher.__main__:main
-   :prog: kingfisher
+.. click:: strigiform.__main__:main
+   :prog: strigiform
    :nested: full

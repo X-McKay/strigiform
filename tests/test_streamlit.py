@@ -5,9 +5,9 @@ import unittest
 import pandas as pd
 from mock import patch
 
-from kingfisher.app.streamlit import add_line_break
-from kingfisher.app.streamlit import get_data
-from kingfisher.app.streamlit import get_period_stats
+from strigiform.app.streamlit import add_line_break
+from strigiform.app.streamlit import get_data
+from strigiform.app.streamlit import get_period_stats
 
 
 class Streamlit(unittest.TestCase):
@@ -80,12 +80,12 @@ class Streamlit(unittest.TestCase):
         """Test for generic line break."""
         assert add_line_break() is not None
 
-    @patch("kingfisher.app.streamlit.main")
+    @patch("strigiform.app.streamlit.main")
     def test_main(self, mock_main):
         """Test for main."""
         self.get_test_data()
         mock_main = "Mock"
-        with patch("kingfisher.app.streamlit.__name__", "None"):
-            import kingfisher.app.streamlit as st_app
+        with patch("strigiform.app.streamlit.__name__", "None"):
+            import strigiform.app.streamlit as st_app
 
             assert st_app.main() != mock_main

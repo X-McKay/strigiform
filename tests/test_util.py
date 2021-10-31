@@ -4,8 +4,8 @@ import unittest
 
 import mock
 
-from kingfisher.util import api
-from kingfisher.util import config
+from strigiform.util import api
+from strigiform.util import config
 
 
 class TestApiUtil(unittest.TestCase):

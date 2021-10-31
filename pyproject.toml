@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "kingfisher"
+name = "strigiform"
 version = "0.0.1"
-description = "kingfisher"
+description = "strigiform"
 authors = ["Alex McKay <aldmckay@gmail.com>"]
 license = "MIT"
 readme = "README.rst"
-homepage = "https://github.com/X-McKay/kingfisher"
-repository = "https://github.com/X-McKay/kingfisher"
-documentation = "https://kingfisher.readthedocs.io"
+homepage = "https://github.com/X-McKay/strigiform"
+repository = "https://github.com/X-McKay/strigiform"
+documentation = "https://strigiform.readthedocs.io"
 
 classifiers = [
     "Programming Language :: Python :: 3.7",
@@ -16,7 +16,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/X-McKay/kingfisher/releases"
+Changelog = "https://github.com/X-McKay/strigiform/releases"
 
 [tool.poetry.dependencies]
 python = "^3.7.9"
@@ -66,14 +66,14 @@ Pygments = "^2.9.0"
 pytest-cov = "^2.12.1"
 
 [tool.poetry.scripts]
-kingfisher = "kingfisher.core.cli:main"
+strigiform = "strigiform.core.cli:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["kingfisher"]
+source = ["strigiform"]
 
 [tool.coverage.report]
 show_missing = true

@@ -1,1 +1,1 @@
-"""Test suite for the kingfisher package."""
+"""Test suite for the strigiform package."""

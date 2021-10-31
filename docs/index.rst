@@ -13,4 +13,4 @@
    contributing
    Code of Conduct <codeofconduct>
    License <license>
-   Changelog <https://github.com/X-McKay/kingfisher/releases>
+   Changelog <https://github.com/X-McKay/strigiform/releases>

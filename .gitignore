@@ -10,7 +10,7 @@
 __pycache__/
 .venv
 .vscode
-/src/kingfisher/util/auth.py
+/src/strigiform/util/auth.py
 .ENV
 data/*
 database.ini

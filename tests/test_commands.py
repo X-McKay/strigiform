@@ -3,11 +3,11 @@ import os
 import unittest
 from subprocess import SubprocessError
 
-from kingfisher.core.commands._helpers import execute_shell_command
-from kingfisher.core.commands.hotspots import clean_echo_results
-from kingfisher.core.commands.hotspots import hotspot_cmd
-from kingfisher.core.commands.test import get_root_dir
-from kingfisher.core.commands.test import nox_cmd
+from strigiform.core.commands._helpers import execute_shell_command
+from strigiform.core.commands.hotspots import clean_echo_results
+from strigiform.core.commands.hotspots import hotspot_cmd
+from strigiform.core.commands.test import get_root_dir
+from strigiform.core.commands.test import nox_cmd
 
 
 class CommandHelpers(unittest.TestCase):
@@ -32,11 +32,11 @@ class CommandHelpers(unittest.TestCase):
         self.assertEqual(get_root_dir(), secondary_dir)
 
     def test_nox_cmd(self) -> None:
-        """Test for kingfisher test cli command."""
+        """Test for strigiform test cli command."""
         self.assertRaises(FileNotFoundError, nox_cmd, "fake")
 
     def test_hotspots(self) -> None:
-        """Test for kingfisher hotspot cli command."""
+        """Test for strigiform hotspot cli command."""
         self.assertRaises(ValueError, hotspot_cmd, lat=100)
 
     def test_clean_echo_results(self) -> None:

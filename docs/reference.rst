@@ -6,8 +6,8 @@ Reference
     :backlinks: none
 
 
-kingfisher.__main__
+strigiform.__main__
 --------------
 
-.. automodule:: kingfisher.__main__
+.. automodule:: strigiform.__main__
    :members:
