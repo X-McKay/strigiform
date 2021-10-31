@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "strigiform"
-version = "0.0.1"
+version = "0.0.2"
 description = "strigiform"
 authors = ["Alex McKay <aldmckay@gmail.com>"]
 license = "MIT"
