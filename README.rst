@@ -54,9 +54,11 @@ Features
 
 * `Click`_ - Easy to use command line interface.
 * `eBird API`_ - Get taxonomy, hotspots, and more from eBird
+* `PostgreSQL`_ - Database for storing and querying data
 * `Streamlit`_ - Web app to visualize and interact with observation data
 * `Vault`_ - Secret management
 * `Terraform`_ - Infrastructure as code
+
 
 
 
@@ -79,9 +81,9 @@ Installation
 
 You can install *strigiform* via pip_ from PyPI_:
 
-.. code:: console
+.. code::
 
-   $ pip install strigiform
+   pip install strigiform
 
 
 
@@ -92,6 +94,7 @@ TODOs & Roadmap
 - Improve Unit Testing
 - Reproducability testing
 - Integration with Cloud Providers (AWS, GCP, Azure, etc.)
+- Add providers for MySQL/`MariaDB`_ and `Redis`_
 - Containerize Streamlit application
 - Graph visualization of taxonomy and lifelist
 - GeoHeatmap of observations
@@ -158,3 +161,6 @@ Credits and inspiration
 .. _Cornell Lab of Ornithology: https://www.birds.cornell.edu/home/
 .. _@twrodriguez: https://github.com/twrodriguez
 .. _System Bootstrap: https://github.com/twrodriguez/system-bootstrap
+.. _PostgreSQL: https://www.postgresql.org/
+.. _MariaDB: https://mariadb.org/
+.. _Redis: https://redis.io/
