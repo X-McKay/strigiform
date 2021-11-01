@@ -34,6 +34,6 @@ df.columns = [
 # connect to the PostgreSQL server
 # conn = psycopg2.connect(**params)
 
-engine = create_engine(config.postgres_engine_str())  # TODO: Generalize
+engine = create_engine(config.db_engine_str())  # TODO: Generalize
 
 df.to_sql("taxonomy", engine, if_exists="replace")  # TODO: modify to append delta
