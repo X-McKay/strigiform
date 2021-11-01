@@ -1,5 +1,22 @@
 #!/bin/bash
-# Note: credit to Tim Rodriguez@https://github.com/twrodriguez
+
+brew_install() {
+    echo "Installing $1"
+    if brew list $1 &>/dev/null; then
+        echo "${1} is already installed"
+    else
+        brew install $1 && echo "$1 is installed"
+    fi
+}
+
+brew_install_cask() {
+    echo "Installing $1"
+    if brew list $1 &>/dev/null; then
+        echo "${1} is already installed"
+    else
+        brew install --cask $1 && echo "$1 is installed"
+    fi
+}
 
 install_asdf() {
     echo "Attempting to install asdf..."
@@ -85,4 +102,9 @@ asdf_install_all_components() {
             asdf_install_latest ${component}
         fi
     done
+}
+
+install_hashicorp_tools() {
+    asdf install terraform
+    asdf install vault
 }

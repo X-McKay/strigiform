@@ -9,12 +9,13 @@ root_dir="$(git rev-parse --show-toplevel)"
 export BIN_DIR=$bin_dir
 export ROOT_DIR=$root_dir
 
-source "${bin_dir}/set-env.sh"
+source "./${bin_dir}/set-env.sh"
 
 # Install asdf and plugins
 asdf_add_required_plugins
 asdf_install_all_components
 asdf install $(grep "python" "${root_dir}/.tool-versions")
+install_hashicorp_tools
 asdf reshim
 
 pip install -U pip
