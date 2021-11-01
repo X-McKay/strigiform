@@ -1,5 +1,5 @@
 ===============================
-strigiform
+Strigiform
 ===============================
 
 
@@ -35,29 +35,28 @@ strigiform
    :alt: Black
 
 
-strigiform is a Python mono-repo that provides tools for Birders and Researchers to:
+Strigiform is a monorepo of tools, applications, and services for Birders and Researchers.
 
-* Explore and visualize information for Birders
-* Easily interact with eBird APIs.
 
 
 Project Maturity and readiness
 ------------------------------
 
-strigiform is under active development; many key workflows and best practices are still being worked out.
-More seamless interaction with eBird products is in development, as well as
-general improvement the overall user experience.
+Strigiform is under active development and has not been tested
+for use by others; many key workflows and best practices are still being worked
+out and/or implemented. For information about the focus of future work,
+please see TODOs & Roadmap.
 
-
-A current major focus is visualization of user life-lists across various levels
-of taxonomy and relevant categories.
 
 
 Features
 --------
 
-* Retrieval of hotspots (eBird) via CLI and/or python
-* Extracting the latest version of the eBird Taxonomy (species list for data entry and listing purposes across the world)
+* `Click`_ - Easy to use command line interface.
+* `eBird API`_ - Get taxonomy, hotspots, and more from eBird
+* `Streamlit`_ - Web app to visualize and interact with observation data
+* `Vault`_ - Secret management
+* `Terraform`_ - Infrastructure as code
 
 
 
@@ -70,6 +69,10 @@ Requirements
 
 * Once an API Key has been obtained, store it in an Environment variable named **EBIRD_KEY**
 
+Optional:
+   * `AWS`_ - Instrastructure and storage
+   * `Infracost`_ - Calculate cost of infrastructure prior to deployment
+
 
 Installation
 ------------
@@ -79,6 +82,19 @@ You can install *strigiform* via pip_ from PyPI_:
 .. code:: console
 
    $ pip install strigiform
+
+
+
+TODOs & Roadmap
+---------------
+
+- CLI Reference
+- Improve Unit Testing
+- Reproducability testing
+- Integration with Cloud Providers (AWS, GCP, Azure, etc.)
+- Containerize Streamlit application
+- Graph visualization of taxonomy and lifelist
+- GeoHeatmap of observations
 
 
 Usage
@@ -133,3 +149,10 @@ Credits
 .. _Usage: https://strigiform.readthedocs.io/en/latest/usage.html
 .. _ASDF: http://asdf-vm.com/
 .. _eBird API Key: https://ebird.org/data/download
+.. _eBird API: https://documenter.getpostman.com/view/664302/S1ENwy59
+.. _Streamlit: https://streamlit.io/
+.. _Vault: https://www.vaultproject.io/
+.. _Terraform: https://www.terraform.io/
+.. _AWS: https://aws.amazon.com/
+.. _Infracost: https://www.infracost.com/
+.. _Click: https://click.palletsprojects.com/
