@@ -126,16 +126,15 @@ If you encounter any problems,
 please `file an issue`_ along with a detailed description.
 
 
-Credits
--------
+Credits and inspiration
+-----------------------
 
-* Cornell University
 
-* Cornell Lab of Ornithology
+* `Cornell Lab of Ornithology`_
 
-* This project was originally based on `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template.
+* This project was created using `@cjolowicz`_'s `Hypermodern Python Cookiecutter`_ template.
 
-* Credit to Tim Rodriguez for indirect influence of S&BP.
+* Approach to set-up inspired by `@twrodriguez`_'s `System Bootstrap`
 
 .. _@cjolowicz: https://github.com/cjolowicz
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
@@ -156,3 +155,6 @@ Credits
 .. _AWS: https://aws.amazon.com/
 .. _Infracost: https://www.infracost.com/
 .. _Click: https://click.palletsprojects.com/
+.. _Cornell Lab of Ornithology: https://www.birds.cornell.edu/home/
+.. _@twrodriguez: https://github.com/twrodriguez
+.. _System Bootstrap: https://github.com/twrodriguez/system-bootstrap
