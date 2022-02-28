@@ -1,6 +1,9 @@
 python 3.7.9 3.8.5 3.9.0
-poetry 1.1.8
+poetry 1.1.12
 shellcheck 0.7.0
 java openjdk-11
 terraform 1.0.10
 vault 1.8.2
+tfsec 0.58.14
+tflint 0.33.0
+consul 1.11.1

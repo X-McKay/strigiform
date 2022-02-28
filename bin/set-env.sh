@@ -106,5 +106,9 @@ asdf_install_all_components() {
 
 install_hashicorp_tools() {
     asdf install terraform
+    asdf install consul
     asdf install vault
+    asdf install tfsec
+    asdf install tflint
+
 }

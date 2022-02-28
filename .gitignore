@@ -17,7 +17,9 @@
 __pycache__/
 
 # Sensitive project files
-/src/strigiform/util/auth.py
+/strigiform/util/auth.py
+profiles.yaml
+rdbms_config.yaml
 
 # Testing and data files
 .notebooks

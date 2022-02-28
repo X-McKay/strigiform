@@ -1,0 +1,5 @@
+grafana:
+  host: nas-east.al
+  port: 8081
+  user: admin
+  password: admin

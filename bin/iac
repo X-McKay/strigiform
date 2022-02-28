@@ -1,0 +1,37 @@
+#!/bin/bash -e
+export LANG=en_US.UTF-8
+
+bin_dir="$(dirname "$0")"
+root_dir="$(git rev-parse --show-toplevel)"
+iac_root_dir="${root_dir}/src/strigiform/infra/terraform"
+
+terraform_init() {
+    echo "INFO: Initializing terraform for ${iac_root_dir}"
+    bash -c "cd \"${iac_root_dir}\" && terraform init"
+}
+
+terraform_test() {
+    echo "INFO: Validating terraform configuration files..."
+    bash -c "cd \"${iac_root_dir}\" && terraform validate"
+    echo "INFO: Linting terraform configuration files..."
+    bash -c "tflint --init && tflint ${iac_root_dir}"
+    echo "INFO: Scanning for security concerns..."
+    tfsec "${iac_root_dir}"
+    echo "INFO: Formatting terraform configuration files"
+}
+
+command="${1}"
+
+echo "Running terraform ${command}..."
+
+case "${command}" in
+    init) terraform_init "${iac_root_dir}";;
+    test) terraform_test "${iac_root_dir}";;
+    # plan) "${iac_root_dir}"
+    # apply) "${iac_root_dir}"
+    # destroy) "${iac_root_dir}"
+    *)
+        echo "Not a valid command ${command}"
+        exit 1;;
+
+esac

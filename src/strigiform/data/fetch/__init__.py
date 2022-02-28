@@ -1,1 +1,0 @@
-"""strigiform.service."""
